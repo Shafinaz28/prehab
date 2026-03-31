@@ -127,7 +127,6 @@
     }
 
     .section-text,
-    .hero p,
     .service-card-body p,
     .process-card p,
     .testimonial-card p,
@@ -482,7 +481,7 @@
       line-height: 1.55;
       margin-bottom: 18px;
       max-width: 480px;
-      text-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
+      text-shadow: 0 1px 12px rgba(22, 4, 4, 0.25);
     }
 
     .hero-points {
@@ -730,7 +729,7 @@
     .services,
     .benefits,
     .process,
-    .testimonials,
+    
     .faq,
     .contact {
       padding: 88px 0;
@@ -863,7 +862,7 @@
 
     .services-header,
     .process-header,
-    .testimonials-header,
+    
     .faq-header {
       text-align: center;
       margin-bottom: 40px;
@@ -1792,7 +1791,7 @@
       .services,
       .benefits,
       .process,
-      .testimonials,
+     
       .faq,
       .contact {
         padding: 64px 0;
@@ -1919,6 +1918,185 @@
         padding: 42px 18px;
       }
     }
+
+.digicare-benefits {
+  padding: 80px 0;
+  background: #f7f7f7;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* HEADING */
+.section-title {
+  text-align: center;
+  font-size: 2.3rem;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 50px;
+  line-height: 1.3;
+}
+
+.section-title .accent-orange {
+  color: #ff7a00;
+  font-weight: 700;
+}
+
+/* GRID */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+/* CARD */
+.benefit-card {
+  background: #fff;
+  padding: 30px 20px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+  transition: 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.1);
+}
+
+/* IMAGE */
+.benefit-card img {
+  display: block;
+  margin: 0 auto 18px; /* centers image horizontally */
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* TITLE */
+.benefit-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+/* TEXT */
+.benefit-card p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* TABLET */
+@media (max-width: 991px) {
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 575px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+}
+
+.testimonials {
+  padding: 80px 0;
+  background: #f7f7f7;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 50px;
+}
+
+.section-title .accent-orange {
+  color: #ff7a00;
+}
+
+/* GRID */
+.testimonial-track {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* CARD */
+.testimonial-card {
+  background: #fff;
+  padding: 30px 20px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+/* CLIENT CENTER */
+.client {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* IMAGE CENTER */
+.client img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+
+/* NAME */
+.client strong {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+/* STARS */
+.stars {
+  color: #ffb400;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+/* COUNTRY */
+.client span {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+/* TEXT */
+.testimonial-card p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 991px) {
+  .testimonial-track {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .testimonial-track {
+    grid-template-columns: 1fr;
+  }
+}
+
   </style>
 </head>
 <body class="loading">
@@ -2015,10 +2193,16 @@
               <div class="hero-field">
                 <span class="hero-field-icon" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
                 <select class="hero-cc" name="hero_cc" aria-label="Country code">
-                  <option value="+44" selected>UK +44</option>
-                  <option value="+1">US +1</option>
-                  <option value="+65">SG +65</option>
-                </select>
+  <option value="+91" selected>🇮🇳 India +91</option>
+  <option value="+971">🇦🇪 Dubai (UAE) +971</option>
+  <option value="+46">🇸🇪 Sweden +46</option>
+  <option value="+49">🇩🇪 Germany +49</option>
+  <option value="+33">🇫🇷 France +33</option>
+  <option value="+61">🇦🇺 Australia +61</option>
+  <option value="+44">🇬🇧 UK +44</option>
+  <option value="+1">🇺🇸 US +1</option>
+  <option value="+65">🇸🇬 SG +65</option>
+</select>
                 <input
                   type="tel"
                   name="hero_phone"
@@ -2048,165 +2232,761 @@
       </div>
     </section>
 
-    <section class="about" id="about">
-      <div class="container">
-        <div class="about-grid">
-          <div>
-            <h2 class="section-title"><span class="accent-orange">About PREHAB DigiCare</span> and modern online physiotherapy care</h2>
-            <p class="section-text">
-              PREHAB DigiCare helps patients recover, move better, and feel stronger
-              through online physiotherapy consultations, guided exercise plans,
-              posture correction, and patient-first care.
-            </p>
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
 
-            <ul class="about-points about-list">
-              <li><span class="point-icon">✓</span><span>Evidence-based non-surgical care for pain relief and rehabilitation.</span></li>
-              <li><span class="point-icon">✓</span><span>Condition-specific support for arthritis, sports injury, and posture issues.</span></li>
-              <li><span class="point-icon">✓</span><span>Easy online consultations with guided follow-ups and expert support.</span></li>
-            </ul>
-          </div>
+      <!-- LEFT CONTENT -->
+      <div class="about-text-block">
 
-          <div class="about-image">
-            <img src="image/woman-exercising-gym.jpg" alt="PREHAB consultation image" />
-          </div>
-        </div>
+        <!-- <h2 class="section-title">
+          PREHAB DigiCare<br>
+          <span class="sub-heading">Clinical excellence, digitally delivered.</span>
+        </h2> -->
+
+        <h2 class="section-title">
+        <span class="accent-orange">Clinical excellence </span> digitally delivered.
+      </h2>
+
+        <p>
+          We are the digital evolution of PREHAB | Musculoskeletal and Sports Health Clinics.
+        </p>
+
+        <p>
+          By combining high-level clinical expertise with modern telehealth technology, we provide 
+          elite <strong>Physiotherapy, Strength & Conditioning</strong>, and 
+          <strong>Nutrition</strong> consultations to anyone, anywhere.
+        </p>
+
+        <p>
+          From corporate wellness for busy professionals to performance tracking for athletes on the road, 
+          Digicare ensures your health journey is never interrupted by distance.
+        </p>
+
       </div>
 
-      <div class="stats-band" id="statsCounter" aria-label="Key statistics">
-        <div class="container stats-band-inner">
-          <div class="stat-band-item">
-            <span class="stat-value" data-target="1" data-suffix="+">0</span>
-            <p class="stat-label">Years of physiotherapy care experience</p>
-          </div>
-          <div class="stat-band-item">
-            <span class="stat-value" data-target="100" data-suffix="+">0</span>
-            <p class="stat-label">Patients supported across pain and recovery conditions</p>
-          </div>
-          <div class="stat-band-item">
-            <span class="stat-value" data-target="9" data-suffix="">0</span>
-            <p class="stat-label">Core consultation and rehabilitation service areas</p>
-          </div>
-          <div class="stat-band-item">
-            <span class="stat-value" data-target="100" data-suffix="%">0</span>
-            <p class="stat-label">Personalized care recommendations and guided support</p>
-          </div>
-        </div>
+      <!-- RIGHT IMAGE -->
+      <div class="about-image">
+        <img src="image/woman-exercising-gym.jpg" alt="PREHAB DigiCare physiotherapy consultation" />
       </div>
-    </section>
 
-    <section class="services" id="services">
-      <div class="container">
-        <div class="services-header">
-          <h2 class="section-title"><span class="accent-orange">Our services</span> for better recovery</h2>
-          <p class="section-text">
-            Specialized consultation and guided care for pain management, mobility, rehabilitation, and performance recovery.
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+
+.sub-heading {
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  color: #f97316;
+  margin-top: 5px;
+}
+
+.about-text-block p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #1f2937;
+  margin-bottom: 14px;
+}
+
+.about-text-block strong {
+  font-weight: 700;
+  color: #111827;
+}
+</style>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-header">
+      <h2 class="section-title">
+        <span class="accent-orange">Our services</span> for better recovery
+      </h2>
+      <p class="section-text">
+        Specialized consultation and guided care for pain management, mobility, rehabilitation, and performance recovery.
+      </p>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- Card 1 -->
+      <article class="service-card">
+        <img src="image/Joint Pain.jpg" alt="Joint and muscle pain consultation" class="service-image" />
+        <div class="service-overlay"></div>
+
+        <div class="service-card-body">
+          <h3>Joint and Muscle Pain</h3>
+          <p>
+            Online consultation for neck pain, back pain, shoulder pain, stiffness, and movement restrictions.
           </p>
+
+          <div class="service-btns">
+            <a href="JointandMusclePain.html" class="view-btn">View More</a>
+            <a href="#contact" class="book-btn">Book Your Slot</a>
+          </div>
         </div>
+      </article>
 
-        <div class="services-grid">
-          <article class="service-card">
-            <div class="service-card-bg">
-              <img src="image/Joint Pain.jpg" alt="Joint and muscle pain consultation" />
-              <div class="service-card-body">
-              <h3>Joint and Muscle Pain</h3>
-              <p>Online consultation for neck pain, back pain, shoulder pain, stiffness, and movement restrictions.</p>
-              <a href="#contact" class="service-cta">Book consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-            </div>
-            </div>
-          </article>
+      <!-- Card 2 -->
+      <article class="service-card">
+        <img src="image/arthritis.jpg" alt="Arthritis consultation" class="service-image" />
+        <div class="service-overlay"></div>
 
-          <article class="service-card">
-            <div class="service-card-bg">
-              <img src="image/arthritis.jpg" alt="Arthritis consultation" />
-              <div class="service-card-body">
-              <h3>Arthritis Care</h3>
-              <p>Support for pain relief, mobility improvement, joint stability, and better daily activity planning.</p>
-              <a href="#contact" class="service-cta">Book consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-            </div>
-            </div>
-          </article>
+        <div class="service-card-body">
+          <h3>Arthritis Care</h3>
+          <p>
+            Support for pain relief, mobility improvement, joint stability, and better daily activity planning.
+          </p>
 
-          <article class="service-card">
-            <div class="service-card-bg">
-              <img src="image/lifestyledisses.jpg" alt="Lifestyle disorders consultation" />
-              <div class="service-card-body">
-              <h3>Lifestyle Disorders</h3>
-              <p>Guidance for posture correction, sedentary pain, desk-job strain, and poor movement habits.</p>
-              <a href="#contact" class="service-cta">Book consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-            </div>
-            </div>
-          </article>
+          <div class="service-btns">
+            <a href="nutrition.html" class="view-btn">View More</a>
+            <a href="#contact" class="book-btn">Book Your Slot</a>
+          </div>
+        </div>
+      </article>
 
-          <article class="service-card">
-            <div class="service-card-bg">
-              <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=900&q=80" alt="Post operative recovery" />
-              <div class="service-card-body">
-              <h3>Post Operative Rehab</h3>
-              <p>Step-by-step recovery support after surgery with safe mobility progression and guided home care.</p>
-              <a href="#contact" class="service-cta">Book consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-            </div>
-            </div>
-          </article>
+      <!-- Card 3 -->
+      <article class="service-card">
+        <img src="image/lifestyledisses.jpg" alt="Lifestyle disorders consultation" class="service-image" />
+        <div class="service-overlay"></div>
 
-          <article class="service-card">
-            <div class="service-card-bg">
-              <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=900&q=80" alt="Strength and conditioning" />
-              <div class="service-card-body">
-              <h3>Strength and Conditioning</h3>
-              <p>Improve body stability, endurance, confidence, and strength through guided exercise support.</p>
-              <a href="#contact" class="service-cta">Book consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-            </div>
-            </div>
-          </article>
+        <div class="service-card-body">
+          <h3>Lifestyle Disorders</h3>
+          <p>
+            Guidance for posture correction, sedentary pain, desk-job strain, and poor movement habits.
+          </p>
 
-          <article class="service-card">
-            <div class="service-card-bg">
-              <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=900&q=80" alt="Sports recovery" />
-              <div class="service-card-body">
-              <h3>Sports Recovery</h3>
-              <p>Consult for sports injuries, strain management, return-to-play planning, and recovery support.</p>
-              <a href="#contact" class="service-cta">Book consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-            </div>
-            </div>
-          </article>
+          <div class="service-btns">
+  <a href="JointandMusclePain.html" class="view-btn">View More</a>
+  <a href="#contact" class="book-btn">Book Slot</a>
+</div>
+        </div>
+      </article>
 
-          <article class="service-card">
-            <div class="service-card-bg">
-              <img src="image/fallWalking.jpg" alt="Fall prevention" />
-              <div class="service-card-body">
-              <h3>Fall Prevention</h3>
-              <p>Targeted sessions for balance, stability, strength, and safer mobility for seniors and at-risk patients.</p>
-              <a href="#contact" class="service-cta">Book consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-            </div>
-            </div>
-          </article>
+    </div>
+  </div>
+</section>
 
-          <article class="service-card">
-            <div class="service-card-bg">
-              <img src="image/fitness.jpg" alt="Pilates and mobility" />
-              <div class="service-card-body">
-              <h3>Pilates Training</h3>
-              <p>Improve core strength, flexibility, posture, and overall body movement through guided care.</p>
-              <a href="#contact" class="service-cta">Book consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-            </div>
-            </div>
-          </article>
+<style>
+  .services {
+  padding: 70px 0;
+  background: #f3f3f3;
+}
 
-          <article class="service-card">
-            <div class="service-card-bg">
-              <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=900&q=80" alt="Nutrition support" />
-              <div class="service-card-body">
-              <h3>Nutrition Guidance</h3>
-              <p>Support healing, energy, and better recovery outcomes through simple nutrition direction.</p>
-              <a href="#contact" class="service-cta">Book consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-            </div>
-            </div>
-          </article>
+.services-header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.section-title {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #1c2a4d;
+}
+
+.accent-orange {
+  color: #ff6a00;
+}
+
+.section-text {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 0.95rem;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* GRID */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+/* CARD */
+.service-card {
+  position: relative;
+  min-height: 300px; /* reduced */
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.service-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.2)
+  );
+}
+
+/* CONTENT */
+.service-card-body {
+  position: relative;
+  z-index: 2;
+  min-height: 300px;
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #fff;
+}
+
+/* TEXT */
+.service-card-body h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.service-card-body p {
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+/* BUTTONS */
+.service-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.service-btns a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 6px;
+  text-decoration: none;
+  white-space: normal;
+  min-height: 36px;
+}
+
+/* BUTTON STYLES */
+.view-btn {
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.book-btn {
+  background: #ff6a00;
+  color: #fff;
+}
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .service-card,
+  .service-card-body {
+    min-height: 320px;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+  .service-card,
+  .service-card-body {
+    min-height: 330px;
+  }
+
+  .service-btns a {
+    font-size: 0.7rem;
+    padding: 8px 5px;
+  }
+}
+</style>
+
+<section class="process">
+  <div class="container">
+
+   
+
+    <h2 class="section-title">
+        <span class="accent-orange">DigiCare</span> process
+      </h2>
+
+    <div class="process-wrapper">
+
+      <!-- Step 1 -->
+      <div class="process-step">
+        <div class="icon"><i class="fa-solid fa-phone"></i></div>
+        <p>Schedule first consultation</p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="process-step">
+        <div class="icon"><i class="fa-solid fa-clipboard-list"></i></div>
+        <p>Online Physical Health Assessment</p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="process-step">
+        <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
+        <p>Goal-based Exercise/Nutrition Program Design</p>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="process-step">
+        <div class="icon"><i class="fa-solid fa-trophy"></i></div>
+        <p>Achieve set goals</p>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="process-step active">
+        <div class="icon"><i class="fa-solid fa-circle-check"></i></div>
+        <p>Re-assessment & progress as per milestones achieved</p>
+      </div>
+
+      <!-- Step 6 -->
+      <div class="process-step">
+        <div class="icon"><i class="fa-solid fa-arrows-rotate"></i></div>
+        <p>Regular follow-ups & progress tracking</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .process {
+  padding: 80px 0;
+  background: #f5f5f5;
+  overflow: hidden;
+}
+
+.process .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.process-title {
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 65px;
+  line-height: 1.15;
+  color: #111; /* removed blue */
+}
+
+.process-title span {
+  color: #ff6a00;
+}
+
+/* main layout */
+.process-wrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 54px 54px;
+  align-items: center;
+  justify-items: center;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* horizontal lines */
+.process-wrapper::before,
+.process-wrapper::after {
+  content: "";
+  position: absolute;
+  left: 120px;
+  right: 120px;
+  height: 2px;
+  background: #ccc; /* removed blue */
+  z-index: 0;
+}
+
+.process-wrapper::before {
+  top: 72px;
+}
+
+.process-wrapper::after {
+  top: 192px;
+}
+
+/* step card */
+.process-step {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  min-height: 88px;
+  background: #eaeaea;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* curved connector */
+.process-step:nth-child(3)::after {
+  content: "";
+  position: absolute;
+  right: -28px;
+  top: 44px;
+  width: 44px;
+  height: 116px;
+  border: 2px solid #ccc; /* removed blue */
+  border-left: none;
+  border-radius: 0 44px 44px 0;
+}
+
+/* icon */
+.icon {
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  border-radius: 50%;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  color: #333; /* removed blue */
+  font-size: 22px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* active icon */
+.process-step.active .icon {
+  background: #000;
+  color: #fff;
+}
+
+/* text */
+.process-step p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  font-weight: 700;
+  color: #333; /* removed blue */
+}
+
+/* spacing second row */
+.process-step:nth-child(4),
+.process-step:nth-child(5),
+.process-step:nth-child(6) {
+  margin-top: 8px;
+}
+
+/* tablet */
+@media (max-width: 1024px) {
+  .process {
+    padding: 70px 0;
+  }
+
+  .process-title {
+    font-size: 2.3rem;
+    margin-bottom: 50px;
+  }
+
+  .process-wrapper {
+    gap: 34px 26px;
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+  }
+
+  .process-wrapper::before {
+    left: 90px;
+    right: 90px;
+    top: 70px;
+  }
+
+  .process-wrapper::after {
+    left: 90px;
+    right: 90px;
+    top: 186px;
+  }
+
+  .process-step {
+    padding: 14px 16px;
+    min-height: 84px;
+  }
+
+  .icon {
+    width: 52px;
+    height: 52px;
+    font-size: 20px;
+  }
+
+  .process-step p {
+    font-size: 0.88rem;
+  }
+
+  .process-step:nth-child(3)::after {
+    right: -20px;
+    width: 34px;
+    height: 108px;
+  }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+  .process {
+    padding: 60px 0;
+  }
+
+  .process-title {
+    font-size: 2rem;
+    margin-bottom: 36px;
+  }
+
+  .process-wrapper {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .process-wrapper::before,
+  .process-wrapper::after,
+  .process-step:nth-child(3)::after {
+    display: none;
+  }
+
+  .process-step {
+    border-radius: 24px;
+    padding: 14px 16px;
+  }
+
+  .icon {
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+  }
+
+  .process-step p {
+    font-size: 0.9rem;
+  }
+}
+
+/* small mobile */
+@media (max-width: 480px) {
+  .process .container {
+    padding: 0 16px;
+  }
+
+  .process-title {
+    font-size: 1.75rem;
+  }
+
+  .process-step {
+    gap: 12px;
+    padding: 12px 14px;
+  }
+
+  .icon {
+    width: 46px;
+    height: 46px;
+    font-size: 17px;
+  }
+
+  .process-step p {
+    font-size: 0.84rem;
+  }
+}
+</style>
+
+<section class="digicare-benefits">
+  <div class="container">
+
+    <h2 class="section-title">
+      <span class="accent-orange">Benefits of</span> PREHAB DigiCare
+    </h2>
+
+    <div class="benefits-grid">
+
+      <div class="benefit-card">
+        <img src="image/doctor-patient-shaking-hands.jpg" alt="">
+        <h3>Convenience</h3>
+        <p>Patients can schedule appointments without the need for travel.</p>
+      </div>
+
+      <div class="benefit-card">
+        <img src="image/smart-watch-home.jpg" alt="">
+        <h3>Time-Saving</h3>
+        <p>Reduces waiting times for consultations and follow-ups.</p>
+      </div>
+
+      <div class="benefit-card">
+        <img src="image/examination.jpg" alt="">
+        <h3>Cost Effective</h3>
+        <p>Reduces travel and associated costs for patients.</p>
+      </div>
+
+      <div class="benefit-card">
+        <img src="image/phone-white.jpg" alt="">
+        <h3>Accessibility</h3>
+        <p>Increases access to specialists and resources across distances.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="why-prehab-clean">
+  <div class="container">
+    <div class="why-prehab-wrap">
+
+      <!-- Left Content -->
+      <div class="why-prehab-content">
+        <h2 class="section-title">
+          Why PREHAB <span class="accent-orange">DigiCare?</span>
+        </h2>
+
+        <p class="why-prehab-text">
+          At PREHAB DigiCare, we’ve redesigned the digital health experience by blending
+          expertise with cutting-edge telerehabilitation. We don’t just offer “video calls”,
+          we provide a high-performance clinical environment delivered directly to your space.
+          Our evidence-based protocols ensure faster recovery, better mobility, and long-term results.
+        </p>
+
+        <div class="why-points">
+
+          <div class="why-point">
+            <i class="fas fa-check"></i>
+            <span>12+ years experience</span>
+          </div>
+
+          <div class="why-point">
+            <i class="fas fa-check"></i>
+            <span>500+ satisfied patients</span>
+          </div>
+
+          <div class="why-point">
+            <i class="fas fa-check"></i>
+            <span>98% success rate</span>
+          </div>
+
+          <div class="why-point">
+            <i class="fas fa-check"></i>
+            <span>Seamless accessibility</span>
+          </div>
+
         </div>
       </div>
-    </section>
 
-    <section class="benefits" id="benefits">
+      <!-- Right Image -->
+      <div class="why-prehab-image">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1200&q=80" alt="Benefits of online physiotherapy" />
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .why-prehab-clean {
+  padding: 90px 0;
+  background: #ffffff;
+}
+
+.why-prehab-wrap {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 50px;
+}
+
+/* Text */
+.why-prehab-text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #4b5563;
+  margin-bottom: 30px;
+  max-width: 650px;
+}
+
+/* Points */
+.why-points {
+  display: grid;
+  gap: 14px;
+  max-width: 420px;
+}
+
+.why-point {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff7f2; /* light orange */
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #1f2230;
+  border: 1px solid #ffe2cf;
+}
+
+/* Icon */
+.why-point i {
+  color: #FE6B09;
+  font-size: 14px;
+}
+
+/* Image */
+.why-prehab-image img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .why-prehab-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .why-prehab-clean {
+    padding: 60px 0;
+  }
+
+  .why-prehab-text {
+    font-size: 15px;
+  }
+}
+</style>
+
+
+
+
+
+    <!-- <section class="benefits" id="benefits">
       <div class="container">
         <div class="benefits-grid">
           <div class="benefits-image">
@@ -2241,9 +3021,11 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <section class="process" id="process">
+    
+
+    <!-- <section class="process" id="process">
       <div class="container">
         <div class="process-header">
           <h2 class="section-title"><span class="accent-orange">How it works</span> Your consultation journey</h2>
@@ -2278,9 +3060,11 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <section class="cta-band">
+    
+    
+    <!-- <section class="cta-band">
       <div class="container">
         <div class="cta-box">
           <h2><span class="accent-orange">Start today</span> Your online physiotherapy consultation</h2>
@@ -2299,111 +3083,89 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <section class="testimonials" id="testimonials">
-      <div class="container">
-        <div class="testimonials-header">
-          <h2 class="section-title"><span class="accent-orange">Testimonials</span> What our patients say</h2>
-        </div>
+<section class="testimonials" id="testimonials">
+  <div class="container">
 
-        <div class="testimonial-slider">
-          <button type="button" class="testimonial-nav testimonial-prev" aria-label="Previous testimonial">
-            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
-          </button>
-          <button type="button" class="testimonial-nav testimonial-next" aria-label="Next testimonial">
-            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-          </button>
-          <div class="testimonial-viewport">
-            <div class="testimonial-track" id="testimonialTrack">
-              <article class="testimonial-card">
-                <div class="testimonial-top">
-                  <div class="client">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80" alt="Patient testimonial" />
-                    <div>
-                      <strong>Ayesha R.</strong>
-                      <span>UK</span>
-                    </div>
-                  </div>
-                  <div class="quote">”</div>
-                </div>
-                <p>The online consultation was clear, comfortable, and genuinely helpful. Booking was simple and the guidance was easy to follow.</p>
-              </article>
+    <div class="testimonials-header">
+      <h2 class="section-title">
+        <span class="accent-orange">Testimonials</span>
+       
+      </h2>
+    </div>
 
-              <article class="testimonial-card">
-                <div class="testimonial-top">
-                  <div class="client">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="Patient testimonial" />
-                    <div>
-                      <strong>Rahul K.</strong>
-                      <span>US</span>
-                    </div>
-                  </div>
-                  <div class="quote">”</div>
-                </div>
-                <p>I was surprised at how effective the consultation was. The website looked modern, clean, and trustworthy.</p>
-              </article>
+    <div class="testimonial-slider">
 
-              <article class="testimonial-card">
-                <div class="testimonial-top">
-                  <div class="client">
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80" alt="Patient testimonial" />
-                    <div>
-                      <strong>Alina Rao</strong>
-                      <span>Singapore</span>
-                    </div>
-                  </div>
-                  <div class="quote">”</div>
-                </div>
-                <p>Professional, patient-friendly, and easy to use on mobile. I got useful advice for posture, exercises, and daily habits.</p>
-              </article>
+      <div class="testimonial-viewport">
+        <div class="testimonial-track">
 
-              <article class="testimonial-card" aria-hidden="true">
-                <div class="testimonial-top">
-                  <div class="client">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80" alt="" />
-                    <div>
-                      <strong>Ayesha R.</strong>
-                      <span>UK</span>
-                    </div>
-                  </div>
-                  <div class="quote">”</div>
-                </div>
-                <p>The online consultation was clear, comfortable, and genuinely helpful. Booking was simple and the guidance was easy to follow.</p>
-              </article>
+          <!-- CARD -->
+          <article class="testimonial-card">
+            <div class="client">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80">
 
-              <article class="testimonial-card" aria-hidden="true">
-                <div class="testimonial-top">
-                  <div class="client">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="" />
-                    <div>
-                      <strong>Rahul K.</strong>
-                      <span>US</span>
-                    </div>
-                  </div>
-                  <div class="quote">”</div>
-                </div>
-                <p>I was surprised at how effective the consultation was. The website looked modern, clean, and trustworthy.</p>
-              </article>
+              <strong>Ayesha R.</strong>
 
-              <article class="testimonial-card" aria-hidden="true">
-                <div class="testimonial-top">
-                  <div class="client">
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80" alt="" />
-                    <div>
-                      <strong>Alina Rao</strong>
-                      <span>Singapore</span>
-                    </div>
-                  </div>
-                  <div class="quote">”</div>
-                </div>
-                <p>Professional, patient-friendly, and easy to use on mobile. I got useful advice for posture, exercises, and daily habits.</p>
-              </article>
+              <div class="stars">
+                ★★★★★
+              </div>
+
+              <span>UK</span>
             </div>
-          </div>
+
+            <p>
+              The online consultation was clear, comfortable, and genuinely helpful. 
+              Booking was simple and the guidance was easy to follow.
+            </p>
+          </article>
+
+          <!-- CARD -->
+          <article class="testimonial-card">
+            <div class="client">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80">
+
+              <strong>Rahul K.</strong>
+
+              <div class="stars">
+                ★★★★★
+              </div>
+
+              <span>US</span>
+            </div>
+
+            <p>
+              I was surprised at how effective the consultation was. The website looked modern, clean, and trustworthy.
+            </p>
+          </article>
+
+          <!-- CARD -->
+          <article class="testimonial-card">
+            <div class="client">
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80">
+
+              <strong>Alina Rao</strong>
+
+              <div class="stars">
+                ★★★★★
+              </div>
+
+              <span>Singapore</span>
+            </div>
+
+            <p>
+              Professional, patient-friendly, and easy to use on mobile. I got useful advice for posture, exercises, and daily habits.
+            </p>
+          </article>
+
         </div>
       </div>
-    </section>
+
+    </div>
+  </div>
+</section>
+
+
 
     <section class="faq" id="faq">
       <div class="container">

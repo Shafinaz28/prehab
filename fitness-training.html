@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PREHAB DigiCare | Fitness Training</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <style>
+    :root {
+      --primary: #FE6B09;
+      --dark: #1f2230;
+      --text: #4b5563;
+      --light: #f5f7fb;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      background: #fafafa;
+      color: var(--text);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    /* HEADER */
+    .header {
+      background: #fff;
+      padding: 18px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .book-btn {
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 360px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      background: #111827;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.55)),
+        url("image/lifestyledisses.jpg") center/cover no-repeat;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+      padding: 20px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(254,107,9,0.2);
+      border: 1px solid rgba(254,107,9,0.4);
+      padding: 8px 16px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      font-weight: 900;
+      line-height: 1.15;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn,
+    .btn-outline {
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.25s ease;
+    }
+
+    .btn {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn:hover {
+      background: #db5a00;
+    }
+
+    .btn-outline {
+      border: 1px solid #fff;
+      color: #fff;
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    /* DETAILS */
+    .details {
+      padding: 80px 0;
+      background: var(--light);
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      height: 100%;
+    }
+
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 16px;
+      font-size: 1.2rem;
+    }
+
+    .card ul {
+      padding-left: 20px;
+    }
+
+    .card li {
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+
+    /* CTA */
+    .cta {
+      padding: 60px 0;
+      text-align: center;
+      background: #1f2230;
+      color: #fff;
+    }
+
+    .cta h2 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: #111;
+      color: #ccc;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .header-inner {
+        flex-direction: column;
+      }
+
+      .nav {
+        justify-content: center;
+      }
+
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        min-height: 320px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-buttons a {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      .cta h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+      <div class="logo">
+        <a href="index.html">
+          <img src="image/logo.png" alt="PREHAB DigiCare Logo">
+        </a>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <a href="index.html#contact" class="book-btn">Book Appointment</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="badge">DigiCare | Fitness Training</div>
+      <h1>Train Smarter. Move Better. Build Strength With Purpose.</h1>
+
+      <div class="hero-buttons">
+        <a href="index.html#contact" class="btn">Book Your Slot</a>
+        <a href="#details" class="btn-outline">View Details</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAILS -->
+  <section class="details" id="details">
+    <div class="container">
+      <div class="details-grid">
+
+        <div class="card">
+          <h3>YOU CAN CONSULT FOR:</h3>
+          <ul>
+            <li>Weight management and body re-composition (fat loss, muscle gain)</li>
+            <li>Full body strength training</li>
+            <li>Mobility & flexibility training</li>
+            <li>Posture correction program</li>
+            <li>Runners strength and performance program</li>
+            <li>Badminton agility and power program</li>
+            <li>Cricket bowling speed program</li>
+            <li>Cricket batting power program</li>
+            <li>Football speed and power program</li>
+            <li>Fitness training for elderly</li>
+            <li>Young athletes’ fitness routine</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>WHAT WE PROVIDE:</h3>
+          <ul>
+            <li>One on one consultation with a strength and conditioning coach</li>
+            <li>Detailed assessment of movement and functional limitations</li>
+            <li>Personalized goal-based exercise program</li>
+            <li>Progress tracking and follow-up training</li>
+            <li>Home exercise plan via mobile app</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2>Start Your Fitness Journey With Expert Guidance</h2>
+      <a href="index.html#contact" class="btn">Book Consultation</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      © 2026 PREHAB DigiCare. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>

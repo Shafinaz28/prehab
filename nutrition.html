@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PREHAB DigiCare | Nutrition</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <style>
+    :root {
+      --primary: #FE6B09;
+      --dark: #1f2230;
+      --text: #4b5563;
+      --light: #f5f7fb;
+    }
+
+    * {margin:0;padding:0;box-sizing:border-box;}
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      background: #fafafa;
+      color: var(--text);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    /* HEADER */
+    .header {
+      background: #fff;
+      padding: 18px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .header-inner {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo img {height:50px;}
+
+    .nav a {
+      margin: 0 12px;
+      text-decoration:none;
+      color: var(--dark);
+      font-weight:600;
+    }
+
+    .book-btn {
+      background: var(--primary);
+      color:#fff;
+      padding:10px 18px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:700;
+    }
+
+    /* HERO */
+    .hero {
+      position:relative;
+      min-height:360px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:#fff;
+      background:#111827;
+    }
+
+    .hero::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.5)),
+        url("image/arthritis.jpg") center/cover no-repeat;
+    }
+
+    .hero-content {
+      position:relative;
+      z-index:2;
+      max-width:700px;
+    }
+
+    .badge {
+      display:inline-block;
+      background:rgba(254,107,9,0.2);
+      padding:8px 16px;
+      border-radius:999px;
+      margin-bottom:14px;
+      font-weight:700;
+    }
+
+    .hero h1 {
+      font-size:2.5rem;
+      margin-bottom:20px;
+      font-weight:900;
+    }
+
+    .hero-buttons {
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .btn, .btn-outline {
+      padding:12px 22px;
+      border-radius:999px;
+      font-weight:700;
+      text-decoration:none;
+    }
+
+    .btn {
+      background:var(--primary);
+      color:#fff;
+    }
+
+    .btn-outline {
+      border:1px solid #fff;
+      color:#fff;
+    }
+
+    /* DETAILS */
+    .details {
+      padding:80px 0;
+      background:var(--light);
+    }
+
+    .details-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:30px;
+    }
+
+    .card {
+      background:#fff;
+      padding:30px;
+      border-radius:16px;
+      box-shadow:0 10px 20px rgba(0,0,0,0.05);
+    }
+
+    .card h3 {
+      color:var(--primary);
+      margin-bottom:16px;
+    }
+
+    .card ul {
+      padding-left:20px;
+    }
+
+    .card li {
+      margin-bottom:10px;
+    }
+
+    /* CTA */
+    .cta {
+      padding:60px 0;
+      text-align:center;
+      background:#1f2230;
+      color:#fff;
+    }
+
+    .cta h2 {
+      margin-bottom:20px;
+    }
+
+    /* FOOTER */
+    .footer {
+      background:#111;
+      color:#ccc;
+      padding:40px 0;
+      text-align:center;
+    }
+
+    @media(max-width:768px){
+      .details-grid {grid-template-columns:1fr;}
+      .hero h1 {font-size:2rem;}
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container header-inner">
+    <div class="logo">
+      <img src="image/logo.png" alt="">
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <a href="index.html#contact" class="book-btn">Book Appointment</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="badge">DigiCare | Nutrition</div>
+    <h1>Fuel Your Body. Balance Your Health. Transform Your Lifestyle.</h1>
+
+    <div class="hero-buttons">
+      <a href="index.html#contact" class="btn">Book Your Slot</a>
+      <a href="#details" class="btn-outline">View Details</a>
+    </div>
+  </div>
+</section>
+
+<!-- DETAILS -->
+<section class="details" id="details">
+  <div class="container">
+
+    <div class="details-grid">
+
+      <!-- LEFT -->
+      <div class="card">
+        <h3>YOU CAN CONSULT FOR:</h3>
+        <ul>
+          <li>Weight management (fat loss, muscle gain)</li>
+          <li>Nutrition program for Diabetes</li>
+          <li>Nutrition program for Cholesterol control</li>
+          <li>Nutrition program for Inflammation management</li>
+          <li>Women health: Thyroid dysfunction</li>
+          <li>During pregnancy and post delivery</li>
+          <li>PCOS/PCOD & Fertility</li>
+          <li>Menopause nutrition support</li>
+          <li>Kids health (weight gain/loss, immunity)</li>
+          <li>Gut health (IBS, reflux, dysbiosis)</li>
+          <li>General wellness</li>
+          <li>Performance & training support</li>
+        </ul>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="card">
+        <h3>WHAT WE PROVIDE:</h3>
+        <ul>
+          <li>1-on-1 consultation</li>
+          <li>Personalized nutrition strategy</li>
+          <li>Targeted meal structuring</li>
+          <li>Body composition & lab interpretation</li>
+          <li>Supplement guidance</li>
+          <li>Habit & behavior coaching</li>
+          <li>Accountability & follow-ups</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="container">
+    <h2>Start Your Health Transformation Today</h2>
+    <a href="index.html#contact" class="btn">Book Consultation</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    © 2026 PREHAB DigiCare. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>
