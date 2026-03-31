@@ -2272,113 +2272,136 @@
       </div>
     </section>
 
-    <section class="about" id="about">
-      <div class="container">
-        <div class="about-grid">
+ <section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
 
-          <!-- LEFT CONTENT -->
-          <div class="about-text-block">
+      <!-- LEFT CONTENT -->
+      <div class="about-text-block">
 
-            <!-- TITLE -->
-            <h2 class="section-title">
-              <span class="title-bold">Clinical Excellence</span><br>
-              <span class="title-light">Digitally Delivered.</span>
-            </h2>
+        <!-- TITLE -->
+        <h2 class="section-title">
+          <span class="title-bold">Clinical Excellence,</span><br>
+          <span class="title-light">Digitally Delivered.</span>
+        </h2>
 
-            <!-- PREHAB TEXT -->
-            <p class="about-intro">
-              We are the digital evolution of
-            </p>
+        <!-- PREHAB TEXT -->
+        <p class="about-intro">
+          We are the digital evolution of
+        </p>
 
-            <p class="about-prehab">
-              PREHAB | Musculoskeletal and Sports Health Clinics.
-            </p>
+        <p class="about-prehab">
+          <strong>PREHAB | Musculoskeletal and Sports Health Clinics.</strong>
+        </p>
 
-            <!-- BODY -->
-            <p>
-              By combining high-level clinical expertise with modern telehealth technology, we provide
-              elite <strong>Physiotherapy, Strength & Conditioning</strong>, and
-              <strong>Nutrition</strong> consultations to anyone, anywhere.
-            </p>
+        <!-- BODY -->
+        <p>
+          By combining high-level clinical expertise with modern telehealth technology, we provide
+          elite <strong>Physiotherapy, Strength & Conditioning</strong>, and
+          <strong>Nutrition</strong> consultations to anyone, anywhere.
+        </p>
 
-            <p>
-              From corporate wellness for busy professionals to performance tracking for athletes on the road,
-              Digi <span class="bold">Care</span> ensures your health journey is never interrupted by distance.
-            </p>
+        <p>
+          From corporate wellness for busy professionals to performance tracking for athletes on the road,
+          Digi <span class="bold">Care</span> ensures your health journey is never interrupted by distance.
+        </p>
 
-          </div>
-
-          <!-- RIGHT IMAGE -->
-          <div class="about-image">
-            <img src="image/indian-physician-.jpg"
-              alt="Online physiotherapy consultation" />
-          </div>
-
-        </div>
       </div>
-    </section>
 
-    <style>
-      .about {
-        padding: 80px 0;
-      }
+      <!-- RIGHT IMAGE -->
+      <div class="about-image">
+        <img src="image/indian-physician-.jpg"
+          alt="Online consultation with physiotherapist" />
+      </div>
 
-      .container {
-        max-width: 1200px;
-        margin: auto;
-        padding: 0 20px;
-      }
+    </div>
+  </div>
+</section>
 
-      .about-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-        align-items: center;
-      }
+<style>
+  .about {
+  padding: 80px 0;
+}
 
-      /* TITLE */
-      .section-title {
-        font-size: 28px;
-        line-height: 1.3;
-        color: #111827;
-        margin-bottom: 16px;
-      }
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
 
-      .title-bold {
-        font-weight: 700;
-        color: #f97316;
-      }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
 
-      .title-light {
-        font-weight: 400;
-      }
+/* TITLE */
+.section-title {
+  font-size: 30px;
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
 
-      /* TEXT */
-      .about-text-block p {
-        font-size: 18px;
-        line-height: 1.7;
-        color: #1f2937;
-        margin-bottom: 14px;
-      }
+/* Clinical Excellence → Bold Orange */
+.title-bold {
+  font-weight: 700;
+  color: #f97316;
+}
 
-      .about-prehab {
-        font-weight: 700;
-        color: #111827;
-        margin-bottom: 14px;
-      }
+/* Digitally Delivered → Normal Black */
+.title-light {
+  font-weight: 400;
+  color: #111827;
+}
 
-      .bold {
-        font-weight: 700;
-        color: #111827;
-      }
+/* TEXT */
+.about-text-block p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #1f2937;
+  margin-bottom: 14px;
+}
 
-      /* IMAGE */
-      .about-image img {
-        width: 100%;
-        border-radius: 16px;
-        object-fit: cover;
-      }
-    </style>
+.about-intro {
+  margin-top: 10px;
+}
+
+.about-prehab {
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Digi Care styling */
+.bold {
+  font-weight: 700;
+}
+
+/* IMAGE */
+.about-image img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  display: block;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+  .about-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .about-text-block p {
+    font-size: 15px;
+  }
+}
+</style>
 
     <section class="services" id="services">
       <div class="container">

@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PREHAB DigiCare | Physiotherapy</title>
+  <title>PREHAB Digi Care | Fitness Training</title>
   <meta
     name="description"
-    content="Book online physiotherapy consultation with PREHAB DigiCare. Expert support for lower back pain, neck pain, knee pain, shoulder pain, sports injuries, arthritis, posture correction, and rehabilitation."
+    content="Book online fitness training consultation with PREHAB Digi Care. Expert guidance for fat loss, strength building, mobility, endurance, posture improvement, and lifestyle transformation."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,7 +91,60 @@
       color: var(--primary);
     }
 
-     .page-loader {
+    .section-title {
+      font-size: clamp(28px, 3.6vw, 44px);
+      line-height: 1.15;
+      margin-bottom: 14px;
+      color: var(--dark);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .section-text {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .btn,
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 26px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 15px;
+      transition: 0.25s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.4);
+      color: #fff;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.16);
+      border-color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .page-loader {
       position: fixed;
       inset: 0;
       z-index: 3000;
@@ -255,142 +308,18 @@
       justify-content: center;
     }
 
-
-    .section-title {
-      font-size: clamp(28px, 3.6vw, 44px);
-      line-height: 1.15;
-      margin-bottom: 14px;
-      color: var(--dark);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-
-    .section-text {
-      font-size: 15.5px;
-      line-height: 1.75;
-      color: var(--muted);
-    }
-
-    .btn,
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 52px;
-      padding: 0 26px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 15px;
-      transition: 0.25s ease;
-      border: 1px solid transparent;
-      cursor: pointer;
-    }
-
-    .btn {
-      background: var(--primary);
-      color: #fff;
-      box-shadow: var(--shadow);
-    }
-
-    .btn:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.4);
-      color: #fff;
-    }
-
-    .btn-outline:hover {
-      background: rgba(255,255,255,0.16);
-      border-color: #fff;
-      transform: translateY(-2px);
-    }
-
-    /* HEADER */
-    .top-navbar {
-      position: sticky;
-      top: 0;
-      z-index: 1100;
-      background: #fff;
-      border-bottom: 1px solid #efefef;
-    }
-
-    .top-navbar-inner {
-      min-height: 84px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      position: relative;
-      padding: 8px 0;
-    }
-
-    .top-brand img {
-      height: 54px;
-      width: auto;
-    }
-
-    .top-nav {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      white-space: nowrap;
-    }
-
-    .top-nav a {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--dark);
-    }
-
-    .top-nav a:hover {
-      color: var(--primary);
-    }
-
-    .book-btn-small {
-      padding: 13px 22px;
-      border-radius: 999px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      background: var(--primary);
-      color: #fff;
-      box-shadow: 0 6px 16px rgba(254, 107, 9, 0.25);
-    }
-
-    .top-menu-toggle {
-      display: none;
-      width: 42px;
-      height: 42px;
-      border: 1px solid var(--primary);
-      border-radius: 999px;
-      background: #fff;
-      color: var(--primary);
-      font-size: 1.05rem;
-      cursor: pointer;
-    }
-
-    .mobile-nav-wrap {
-      display: none;
-    }
-
-    /* HERO */
+    /* Hero */
     .hero {
-      position: relative;
-      min-height: 390px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
-      background: #111827;
-      overflow: hidden;
-    }
+  position: relative;
+  min-height: 80vh; /* makes it properly centered vertically */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  background: #111827;
+  overflow: hidden;
+}
 
     .hero::before {
       content: "";
@@ -402,12 +331,18 @@
       transform: scale(1.03);
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 820px;
-      padding: 52px 0;
-    }
+  .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px; /* clean spacing */
+  padding: 0; /* REMOVE extra padding */
+}
 
     .badge {
       display: inline-flex;
@@ -426,14 +361,17 @@
     .badge i {
       color: var(--primary);
     }
+    .badge {
+  margin-bottom: 10px;
+}
 
     .hero h1 {
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      line-height: 1.12;
-      margin-bottom: 24px;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-    }
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.2;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
 
     .hero-title span {
       display: block;
@@ -446,7 +384,7 @@
       flex-wrap: wrap;
     }
 
-    /* DETAILS */
+    /* Details */
     .details {
       padding: 88px 0;
       background: var(--light);
@@ -507,7 +445,7 @@
       margin-top: 2px;
     }
 
-    /* USP BOX VIEW */
+    /* USP */
     .usp-section {
       margin-top: 34px;
     }
@@ -598,7 +536,7 @@
       font-size: 0.98rem;
     }
 
-    /* FOOTER */
+    /* Footer */
     .footer {
       background: var(--primary);
       color: #fff;
@@ -687,7 +625,7 @@
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
     }
 
-    /* RESPONSIVE */
+    /* Responsive */
     @media (max-width: 1100px) {
       .usp-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -695,46 +633,102 @@
     }
 
     @media (max-width: 1024px) {
-      .top-nav {
-        display: none;
+      .top-navbar .container {
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      .top-navbar-inner {
+        display: grid;
+        grid-template-columns: 42px 1fr 42px;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .top-brand {
+        grid-column: 2;
+        justify-self: center;
+      }
+
+      .top-brand img {
+        height: 58px;
+      }
+
+      .top-login-mobile {
+        display: inline-flex;
+        grid-column: 1;
+        justify-self: start;
       }
 
       .top-menu-toggle {
         display: inline-grid;
         place-items: center;
+        grid-column: 3;
+        justify-self: end;
       }
 
-      .mobile-nav-wrap {
+      .top-nav-collapse {
         display: none;
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
-        background: #fff;
-        padding: 14px;
-        box-shadow: 0 12px 30px rgba(17, 24, 39, 0.08);
-      }
-
-      .top-navbar.open .mobile-nav-wrap {
-        display: block;
-      }
-
-      .mobile-nav {
-        display: flex;
+        width: 100%;
         flex-direction: column;
-        gap: 8px;
+        align-items: stretch;
+        gap: 12px;
+        padding: 14px;
+        background: #fff;
+        box-shadow: 0 12px 30px rgba(17, 24, 39, 0.08);
+        z-index: 1200;
       }
 
-      .mobile-nav a {
+      .top-navbar.open .top-nav-collapse {
+        display: flex;
+      }
+
+      .top-nav-links {
+        gap: 4px;
+        font-size: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        position: static;
+        transform: none;
+      }
+
+      .top-nav-links a {
+        width: 100%;
         padding: 10px 12px;
         border-radius: 10px;
-        font-weight: 600;
-        color: var(--dark);
       }
 
-      .mobile-nav a:hover {
-        color: var(--primary);
-        background: #fff7f2;
+      .top-nav-right {
+        width: 100%;
+        justify-content: flex-start;
+        border-top: 1px solid #eef1f5;
+        padding-top: 10px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+
+      .top-nav-right .login-link {
+        display: none;
+      }
+
+      .top-nav-right .book-btn-small,
+      .top-nav-right .cart-link {
+        width: 100%;
+        min-height: 48px;
+        border-radius: 999px;
+        background: var(--primary);
+        color: #fff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.95rem;
+        font-weight: 700;
       }
     }
 
@@ -781,10 +775,19 @@
     @media (max-width: 520px) {
       .top-navbar-inner {
         min-height: 74px;
+        padding-left: 4px;
+        padding-right: 4px;
       }
 
       .top-brand img {
         height: 44px;
+      }
+
+      .top-login-mobile,
+      .top-menu-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
       }
 
       .section-text,
@@ -820,18 +823,18 @@
 
 <body class="loading" id="home">
   <div class="page-loader" id="pageLoader" aria-label="Loading">
-    <img class="page-loader-logo" src="image/logo.png" alt="PREHAB Loading Logo" />
+    <img class="page-loader-logo" src="image/logo.png" alt="PREHAB Digi Care Loading Logo" />
   </div>
 
   <header class="top-navbar">
     <div class="container">
       <div class="top-navbar-inner">
-        <a href="#contact" class="top-login-mobile" aria-label="Log In">
+        <a href="index.html#contact" class="top-login-mobile" aria-label="Contact">
           <i class="fa-solid fa-user"></i>
         </a>
 
         <a href="index.html" class="top-brand">
-          <img src="image/logo.png" alt="PREHAB DigiCare" />
+          <img src="image/logo.png" alt="PREHAB Digi Care" />
         </a>
 
         <button class="top-menu-toggle" id="topMenuToggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -852,7 +855,7 @@
           </nav>
 
           <div class="top-nav-right">
-            <a href="index.html#contact" class="login-link" aria-label="Log In">
+            <a href="index.html#contact" class="login-link" aria-label="Contact">
               <span class="login-icon"><i class="fa-solid fa-user"></i></span>
             </a>
             <a href="index.html#contact" class="book-btn-small">Book Appointment</a>
@@ -865,7 +868,6 @@
     </div>
   </header>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="container">
       <div class="hero-content">
@@ -888,7 +890,6 @@
     </div>
   </section>
 
-  <!-- DETAILS -->
   <section class="details" id="details">
     <div class="container">
 
@@ -952,19 +953,19 @@
           <div class="usp-box">
             <i class="fa-solid fa-user-check"></i>
             <h4>1-on-1 Fitness Consultation</h4>
-            <p>Dedicated sessions to understand your goals, ability level, and training needs.</p>
+            <p>Dedicated sessions to understand your goals, current fitness level, and training needs.</p>
           </div>
 
           <div class="usp-box">
             <i class="fa-solid fa-dumbbell"></i>
             <h4>Personalized Workout Plan</h4>
-            <p>Customized training routines designed around your fitness goals and lifestyle.</p>
+            <p>Customized training routines designed around your body, goals, and lifestyle.</p>
           </div>
 
           <div class="usp-box">
             <i class="fa-solid fa-person-running"></i>
             <h4>Mobility & Strength Training</h4>
-            <p>Balanced training programs to improve movement, strength, stability, and endurance.</p>
+            <p>Balanced programs to improve movement, stability, strength, and endurance.</p>
           </div>
 
           <div class="usp-box">
@@ -976,7 +977,7 @@
           <div class="usp-box">
             <i class="fa-solid fa-heart-pulse"></i>
             <h4>Lifestyle Coaching</h4>
-            <p>Guidance to build consistent habits for long-term health, fitness, and better living.</p>
+            <p>Guidance to build healthy habits for long-term fitness, energy, and better living.</p>
           </div>
         </div>
       </div>
@@ -984,7 +985,6 @@
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="cta">
     <div class="container">
       <div class="cta-box">
@@ -997,12 +997,11 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-logo">
-          <img src="image/logo.png" alt="PREHAB Digi Care Footer Logo">
+          <img src="image/logo.png" alt="PREHAB Digi Care Footer Logo" />
         </div>
 
         <div class="footer-contact">
@@ -1042,16 +1041,38 @@
   </footer>
 
   <script>
+    const pageLoader = document.getElementById('pageLoader');
     const topNavbar = document.querySelector('.top-navbar');
     const topMenuToggle = document.getElementById('topMenuToggle');
+    const topNavLinks = document.querySelectorAll('.top-nav-links a, .top-nav-right a');
+
+    window.addEventListener('load', () => {
+      if (pageLoader) {
+        pageLoader.classList.add('hidden');
+      }
+      document.body.classList.remove('loading');
+    });
+
+    function closeTopMenu() {
+      if (!topNavbar || !topMenuToggle) return;
+      topNavbar.classList.remove('open');
+      topMenuToggle.setAttribute('aria-expanded', 'false');
+    }
 
     if (topMenuToggle && topNavbar) {
       topMenuToggle.addEventListener('click', () => {
         const isOpen = topNavbar.classList.toggle('open');
         topMenuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       });
+
+      topNavLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 1024) {
+            closeTopMenu();
+          }
+        });
+      });
     }
   </script>
-
 </body>
 </html>
