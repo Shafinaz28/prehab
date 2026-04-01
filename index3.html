@@ -1,0 +1,3648 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PREHAB DigiCare | Online Physiotherapy Consultation</title>
+  <meta name="description"
+    content="Book online physiotherapy consultation with PREHAB DigiCare. Expert support for pain relief, posture correction, injury recovery, mobility improvement, and rehabilitation." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <style>
+    :root {
+      --orange: #FE6B09;
+      --primary: var(--orange);
+      --primary-dark: #db5a00;
+      --primary-soft: #fff3eb;
+      --secondary: #1f2230;
+      --dark: #1f2230;
+      --text: #4b5563;
+      --muted: #6b7280;
+      --light: #f7f7f9;
+      --white: #ffffff;
+      --border: #ececf1;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --radius: 18px;
+      --max: 1280px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Montserrat", Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: #fafafa;
+      line-height: 1.65;
+      letter-spacing: 0.1px;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body.loading {
+      overflow: hidden;
+    }
+
+    main {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    main .container {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+
+    /* Index-style: orange accent + dark body text */
+    .accent-orange {
+      color: var(--primary);
+    }
+
+    .section-title .accent-orange {
+      color: var(--primary);
+    }
+
+    .section-title,
+    .hero h1,
+    .service-card-body h3,
+    .process-card h3,
+    .cta-box h2,
+    .faq-question span:first-child,
+    .contact-form-wrap h3 {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--dark);
+    }
+
+    .section-title {
+      font-size: clamp(28px, 3.6vw, 44px);
+      line-height: 1.15;
+      margin-bottom: 14px;
+      color: var(--dark);
+    }
+
+    .section-text,
+    .service-card-body p,
+    .process-card p,
+    .testimonial-card p,
+    .faq-answer p,
+    .point span,
+    .benefit-points .benefit-line,
+    .contact-point span {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #6b7280;
+    }
+
+    .contact-point span {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .btn,
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 54px;
+      padding: 0 28px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      transition: 0.25s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: #fff;
+      color: var(--dark);
+      border-color: #ffd6bf;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .btn .arrow,
+    .btn-outline .arrow {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .btn .arrow {
+      background: rgba(255, 255, 255, 0.18);
+      color: #fff;
+    }
+
+    .btn-outline .arrow {
+      background: var(--primary-soft);
+      color: var(--primary);
+    }
+
+    .page-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 3000;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    .page-loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .page-loader-logo {
+      width: clamp(120px, 18vw, 190px);
+      animation: loaderPulse 1.1s ease-in-out infinite;
+    }
+
+    @keyframes loaderPulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.9;
+      }
+
+      50% {
+        transform: scale(1.06);
+        opacity: 1;
+      }
+    }
+
+    @keyframes floatY {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    .top-navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1100;
+      background: #fff;
+      border-bottom: 1px solid #efefef;
+    }
+
+    .top-navbar .container {
+      width: min(94%, 1320px);
+    }
+
+    .top-navbar-inner {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 8px 0;
+      position: relative;
+    }
+
+    .top-brand {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      white-space: nowrap;
+    }
+
+    .top-brand img {
+      height: 54px;
+      width: auto;
+      display: block;
+    }
+
+    .top-login-mobile {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--primary);
+      border-radius: 999px;
+      color: var(--primary);
+      background: #fff;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+    }
+
+    .top-menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--primary);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--primary);
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .top-menu-toggle:hover {
+      border-color: #e95f07;
+      color: #e95f07;
+      background: #fff7f2;
+    }
+
+    .top-navbar.open .top-menu-toggle {
+      background: #fff7f2;
+      color: #e95f07;
+    }
+
+    .top-nav-collapse {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex: 1;
+      justify-content: flex-end;
+      min-width: 0;
+    }
+
+    .top-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.82rem;
+      color: #1f2230;
+      font-weight: 500;
+      white-space: nowrap;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      margin: 0;
+      pointer-events: auto;
+    }
+
+    .top-nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .top-nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      white-space: nowrap;
+      font-size: 0.96rem;
+    }
+
+    .login-link {
+      color: var(--primary);
+      font-weight: 400;
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      line-height: 1;
+    }
+
+    .login-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 0.84rem;
+    }
+
+    .book-btn-small {
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 6px 16px rgba(254, 107, 9, 0.25);
+    }
+
+    .book-btn-small:hover {
+      transform: translateY(-1px);
+    }
+
+    .cart-link {
+      position: relative;
+      color: var(--primary);
+      font-size: 0.95rem;
+      font-weight: 500;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      width: auto;
+      height: auto;
+    }
+
+    .cart-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 0.82rem;
+    }
+
+    /* HERO: full-bleed background + lead form */
+    .hero {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      padding: 48px 24px;
+      margin-left: -24px;
+      margin-right: -24px;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url("image/digi%20care%20bg.jpeg");
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.02);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg,
+          rgba(15, 23, 42, 0.72) 0%,
+          rgba(15, 23, 42, 0.45) 48%,
+          rgba(15, 23, 42, 0.25) 100%);
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, 400px);
+      gap: 40px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-content {
+      max-width: 560px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 3.8vw, 3.25rem);
+      line-height: 1.08;
+      margin-bottom: 14px;
+      max-width: 560px;
+      color: #fff;
+      text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero-lead {
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 1rem;
+      line-height: 1.55;
+      margin-bottom: 18px;
+      max-width: 480px;
+      text-shadow: 0 1px 12px rgba(22, 4, 4, 0.25);
+    }
+
+    .hero-points {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 22px;
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
+
+    .hero-points span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-points span::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary);
+      flex-shrink: 0;
+      box-shadow: 0 0 0 3px rgba(254, 107, 9, 0.25);
+    }
+
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .hero .btn {
+      box-shadow: 0 10px 28px rgba(254, 107, 9, 0.35);
+    }
+
+    .hero .btn-outline {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.45);
+      color: #fff;
+    }
+
+    .hero .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.22);
+      border-color: #fff;
+      color: #fff;
+    }
+
+    .hero .btn-outline .arrow {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+
+    .hero-form-wrap {
+      justify-self: end;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .hero-lead-form {
+      background: rgba(255, 255, 255, 0.88);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      border-radius: 16px;
+      padding: 26px 22px 20px;
+      box-shadow: 0 24px 56px rgba(0, 0, 0, 0.22);
+    }
+
+    .hero-lead-form h2 {
+      text-align: center;
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: #1f2937;
+      margin-bottom: 6px;
+      line-height: 1.25;
+    }
+
+    .hero-form-sub {
+      text-align: center;
+      font-size: 0.82rem;
+      color: #6b7280;
+      margin-bottom: 20px;
+      line-height: 1.45;
+    }
+
+    .hero-field {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid #d1d5db;
+      margin-bottom: 4px;
+    }
+
+    .hero-field-icon {
+      color: #9ca3af;
+      font-size: 0.95rem;
+      width: 22px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .hero-field input,
+    .hero-field select {
+      flex: 1;
+      min-width: 0;
+      border: none;
+      background: transparent;
+      font-size: 0.92rem;
+      color: #111827;
+      outline: none;
+    }
+
+    .hero-field input::placeholder {
+      color: #9ca3af;
+    }
+
+    .hero-cc {
+      flex: 0 0 auto;
+      max-width: 108px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .hero-submit {
+      width: 100%;
+      margin-top: 18px;
+      padding: 14px 18px;
+      border: none;
+      border-radius: 10px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+      box-shadow: 0 8px 22px rgba(254, 107, 9, 0.38);
+    }
+
+    .hero-submit:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .hero-trust {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(209, 213, 219, 0.9);
+      flex-wrap: wrap;
+    }
+
+    .hero-trust-block {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      color: #4b5563;
+      font-weight: 600;
+    }
+
+    .hero-trust-block i.fa-google {
+      color: #4285f4;
+      font-size: 1rem;
+    }
+
+    .hero-stars {
+      letter-spacing: 1px;
+      font-size: 0.68rem;
+    }
+
+    .hero-stars.gold {
+      color: #f59e0b;
+    }
+
+    .hero-stars.green {
+      color: #00b67a;
+    }
+
+    .hero-trust-label {
+      color: #00b67a;
+      font-weight: 800;
+      font-size: 0.7rem;
+    }
+
+    /* STATS: full-width band + count-up targets */
+    .stats-band {
+      margin-top: 48px;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      width: 100vw;
+      padding: 36px 0;
+      background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .stats-band-inner {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 28px 20px;
+      align-items: start;
+      text-align: center;
+    }
+
+    .stat-band-item {
+      padding: 0 8px;
+    }
+
+    .stats-band .stat-value {
+      display: inline-block;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #fff;
+      font-size: clamp(2rem, 3.6vw, 2.75rem);
+      line-height: 1.05;
+      margin-bottom: 8px;
+      font-variant-numeric: tabular-nums;
+      text-shadow: 0 1px 18px rgba(0, 0, 0, 0.12);
+    }
+
+    .stats-band .stat-label {
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 0.88rem;
+      line-height: 1.55;
+      margin: 0;
+      max-width: 220px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    section {
+      scroll-margin-top: 96px;
+    }
+
+    .about,
+    .services,
+    .benefits,
+    .process,
+
+    .faq,
+    .contact {
+      padding: 88px 0;
+    }
+
+    .about-grid,
+    .benefits-grid,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-image img,
+    .benefits-image img {
+      width: 100%;
+      aspect-ratio: 1.08 / 1;
+      object-fit: cover;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      background: #f8f0ea;
+    }
+
+    .about-points,
+    .contact-points {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .about-list {
+      gap: 10px;
+    }
+
+    .about-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: #4f596a;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .about-list .point-icon {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+    }
+
+    .point,
+    .contact-point {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 16px;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid #f2ebe6;
+      box-shadow: 0 10px 26px rgba(17, 24, 39, 0.06);
+    }
+
+    .benefit-points {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .benefit-points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .benefit-num {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 0.82rem;
+      display: grid;
+      place-items: center;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .benefit-points .benefit-line {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #5f6778;
+    }
+
+    .benefit-points .benefit-line strong {
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    .point-icon,
+    .contact-icon {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .point strong,
+    .contact-point strong {
+      display: block;
+      color: var(--dark);
+      font-size: 15px;
+      margin-bottom: 2px;
+    }
+
+    .services {
+      background: var(--light);
+    }
+
+    .services-header,
+    .process-header,
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .services-header .section-text,
+    .process-header .section-text {
+      margin: 0 auto;
+      max-width: 760px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 26px;
+    }
+
+    .service-card {
+      height: 100%;
+      border-radius: 0;
+      overflow: hidden;
+      border: 1px solid #e8eaef;
+      box-shadow: 0 6px 22px rgba(17, 24, 39, 0.07);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(17, 24, 39, 0.11);
+    }
+
+    .service-card-bg {
+      position: relative;
+      width: 100%;
+      min-height: 296px;
+      aspect-ratio: 10 / 13;
+      max-height: 392px;
+      background: #1a1f2e;
+    }
+
+    .service-card-bg>img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .service-card-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: linear-gradient(to top,
+          rgba(15, 23, 42, 0.97) 0%,
+          rgba(15, 23, 42, 0.82) 28%,
+          rgba(15, 23, 42, 0.35) 55%,
+          transparent 78%);
+    }
+
+    .services .service-card .service-card-body {
+      position: absolute;
+      z-index: 2;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 22px 18px 18px;
+      min-height: 0;
+    }
+
+    .services .service-card .service-card-body h3 {
+      font-size: 1.14rem;
+      margin: 0;
+      line-height: 1.28;
+      color: #fff;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .services .service-card .service-card-body p {
+      margin: 0;
+      font-size: 0.88rem;
+      line-height: 1.58;
+      color: rgba(255, 255, 255, 0.9);
+      flex: 0 1 auto;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .service-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      margin-top: 4px;
+      padding: 11px 16px;
+      border-radius: 0;
+      background: var(--primary);
+      border: none;
+      color: #fff !important;
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .service-cta:hover {
+      background: var(--primary-dark);
+      color: #fff !important;
+    }
+
+    .service-cta i {
+      font-size: 0.78rem;
+      opacity: 0.95;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .process-card {
+      padding: 24px;
+      border-radius: 22px;
+      text-align: center;
+      height: 100%;
+      background: #fff;
+      border: 1px solid #f2ebe6;
+      box-shadow: 0 10px 26px rgba(17, 24, 39, 0.06);
+    }
+
+    .process-step {
+      width: 60px;
+      height: 60px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary) 0%, #ff9348 100%);
+      color: #fff;
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    .process-card h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .cta-band {
+      padding: 0 0 88px;
+      background: var(--white);
+    }
+
+    .cta-box {
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      padding: 60px 34px;
+      background:
+        linear-gradient(135deg, rgba(17, 24, 39, 0.90), rgba(17, 24, 39, 0.76)),
+        url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1400&q=80') center/cover;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .cta-box h2 {
+      color: #fff;
+      font-size: clamp(32px, 4vw, 56px);
+      line-height: 1.08;
+      margin-bottom: 14px;
+    }
+
+    .cta-box h2 .accent-orange {
+      color: var(--primary);
+    }
+
+    .cta-box p {
+      color: rgba(255, 255, 255, 0.88);
+      max-width: 740px;
+      margin: 0 auto 26px;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .testimonial-slider {
+      position: relative;
+      margin-top: 8px;
+      padding: 0 52px;
+    }
+
+    .testimonial-viewport {
+      width: 100%;
+      container-type: inline-size;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .testimonial-viewport::-webkit-scrollbar {
+      display: none;
+    }
+
+    .testimonial-track {
+      display: flex;
+      gap: 22px;
+    }
+
+    .testimonial-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      font-size: 1rem;
+      box-shadow: 0 6px 18px rgba(254, 107, 9, 0.35);
+      transition: background 0.2s ease;
+    }
+
+    .testimonial-nav:hover {
+      background: var(--primary-dark);
+    }
+
+    .testimonial-nav:focus-visible {
+      outline: 2px solid var(--dark);
+      outline-offset: 3px;
+    }
+
+    .testimonial-prev {
+      left: 4px;
+    }
+
+    .testimonial-next {
+      right: 4px;
+    }
+
+    .testimonial-card {
+      border-radius: 24px;
+      padding: 22px;
+      background: #fff;
+      border: 1px solid #f2ebe6;
+      box-shadow: 0 10px 26px rgba(17, 24, 39, 0.06);
+      flex: 0 0 auto;
+      box-sizing: border-box;
+      scroll-snap-align: start;
+      width: 100cqi;
+      min-width: 0;
+    }
+
+    @container (min-width: 900px) {
+      .testimonial-card {
+        width: calc((100cqi - 44px) / 3);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .testimonial-slider {
+        padding: 0 46px;
+      }
+
+      .testimonial-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+      }
+    }
+
+    .testimonial-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .client {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .client img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      object-fit: cover;
+    }
+
+    .client strong {
+      display: block;
+      color: var(--dark);
+      font-size: 16px;
+    }
+
+    .client span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .quote {
+      color: var(--primary);
+      font-size: 40px;
+      line-height: 1;
+      opacity: 0.45;
+      font-family: Georgia, serif;
+    }
+
+    .faq {
+      background: var(--light);
+    }
+
+    .faq-list {
+      max-width: 860px;
+      margin: 0 auto;
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item {
+      border-radius: 20px;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid #f2ebe6;
+      box-shadow: 0 10px 26px rgba(17, 24, 39, 0.06);
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 20px 22px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .faq-question span:first-child {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .faq-icon {
+      width: 34px;
+      height: 34px;
+      min-width: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 20px;
+      transition: transform 0.25s ease;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      padding: 0 22px;
+    }
+
+    .faq-answer p {
+      padding-bottom: 0;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 170px;
+      padding-bottom: 18px;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .contact-grid {
+      align-items: stretch;
+    }
+
+    .contact-card,
+    .contact-form-wrap {
+      border-radius: 28px;
+      padding: 30px;
+      height: 100%;
+      min-width: 0;
+      max-width: 100%;
+      background: #fff;
+      border: 1px solid #f2ebe6;
+      box-shadow: 0 10px 26px rgba(17, 24, 39, 0.06);
+    }
+
+    .contact-card .section-title {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .contact-point {
+      min-width: 0;
+    }
+
+    .contact-point>div:last-of-type {
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .contact-form .field {
+      min-width: 0;
+    }
+
+    .contact-form .btn {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      white-space: nowrap;
+      flex-wrap: nowrap;
+      justify-content: center;
+      padding: 0 clamp(12px, 3.5vw, 28px);
+      font-size: clamp(13px, 3.2vw, 16px);
+      gap: 10px;
+    }
+
+    .contact-form .btn .arrow {
+      width: clamp(26px, 7vw, 30px);
+      height: clamp(26px, 7vw, 30px);
+      font-size: clamp(14px, 3.5vw, 16px);
+    }
+
+    .contact-form .field input,
+    .contact-form .field select,
+    .contact-form .field textarea {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .contact-form-title {
+      font-size: clamp(1.35rem, 5vw, 1.875rem);
+      margin-bottom: 10px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field label {
+      color: var(--dark);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid #e7e8ee;
+      border-radius: 16px;
+      padding: 14px 16px;
+      background: #fff;
+      color: var(--dark);
+      outline: none;
+      transition: 0.2s ease;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: #ffb78c;
+      box-shadow: 0 0 0 4px rgba(254, 107, 9, 0.08);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .footer {
+      background: var(--primary);
+      color: #fff;
+      padding: 48px 0 22px;
+    }
+
+    .footer .container {
+      width: min(92%, var(--max));
+    }
+
+    .footer-logo img {
+      width: 100px;
+      height: auto;
+      display: block;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 28px 32px;
+      align-items: start;
+    }
+
+    .footer-heading {
+      font-size: 0.82rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .footer-contact p {
+      line-height: 1.65;
+      color: #fff;
+      max-width: 340px;
+      margin: 0;
+      font-size: 0.94rem;
+    }
+
+    .footer-links,
+    .footer-meta {
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer a {
+      color: #fff;
+      font-size: 0.94rem;
+    }
+
+    .footer a:hover {
+      color: #fff;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .footer-bottom {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 36px;
+      padding: 18px 52px 0 0;
+      border-top: 1px solid var(--primary-dark);
+      min-height: 48px;
+    }
+
+    .footer-legal {
+      margin: 0;
+      text-align: center;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: #fff;
+      max-width: min(100%, 920px);
+    }
+
+    .footer-back-top {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--dark);
+      color: #fff !important;
+      display: grid;
+      place-items: center;
+      font-size: 1rem;
+      text-decoration: none !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .footer-back-top:hover {
+      background: #141722;
+      color: #fff !important;
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    @media (max-width: 1024px) {
+      .top-navbar .container {
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      .top-navbar-inner {
+        display: grid;
+        grid-template-columns: 42px 1fr 42px;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .top-brand img {
+        height: 58px;
+      }
+
+      .top-login-mobile {
+        display: inline-flex;
+        grid-column: 1;
+        justify-self: start;
+      }
+
+      .top-brand {
+        grid-column: 2;
+        justify-self: center;
+      }
+
+      .top-menu-toggle {
+        display: inline-grid;
+        place-items: center;
+        grid-column: 3;
+        justify-self: end;
+      }
+
+      .top-nav-collapse {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        margin-top: 0;
+        padding: 14px;
+        border: 1px solid #edf0f4;
+        border-left: 0;
+        border-right: 0;
+        border-radius: 0;
+        background: #fff;
+        box-shadow: 0 12px 30px rgba(17, 24, 39, 0.08);
+        z-index: 1200;
+      }
+
+      .top-navbar.open .top-nav-collapse {
+        display: flex;
+      }
+
+      .top-nav-links {
+        gap: 4px;
+        font-size: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: static;
+        left: auto;
+        right: auto;
+        transform: none;
+        max-width: none;
+      }
+
+      .top-nav-links a {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 10px;
+      }
+
+      .top-nav-links a:hover {
+        background: #f6f7fa;
+      }
+
+      .top-nav-right {
+        width: 100%;
+        justify-content: flex-start;
+        border-top: 1px solid #eef1f5;
+        padding-top: 10px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+
+      .top-nav-right .login-link {
+        display: none;
+      }
+
+      .top-nav-right .book-btn-small,
+      .top-nav-right .cart-link {
+        width: 100%;
+        min-height: 48px;
+        border-radius: 999px;
+        background: var(--primary);
+        color: #fff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.95rem;
+        font-weight: 700;
+      }
+
+      .top-nav-right .book-btn-small {
+        padding: 12px 18px;
+      }
+
+      .top-nav-right .cart-link {
+        position: relative;
+        height: auto;
+        box-shadow: 0 6px 16px rgba(254, 107, 9, 0.25);
+      }
+    }
+
+    @media (max-width: 1180px) {
+      .brand-logo {
+        width: 220px;
+      }
+
+      .nav-menu {
+        gap: 18px;
+      }
+
+      .nav-menu a {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .stats-band-inner {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px 16px;
+      }
+
+      .stats-band {
+        padding: 28px 0;
+      }
+    }
+
+    @media (max-width: 1100px) {
+
+      .hero-grid,
+      .about-grid,
+      .benefits-grid,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-form-wrap {
+        justify-self: stretch;
+        max-width: 440px;
+        margin: 0 auto;
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 980px) {
+      .menu-toggle {
+        display: inline-grid;
+        place-items: center;
+        order: 3;
+      }
+
+      .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        border-top: 1px solid #eeeeee;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+        padding: 18px 20px 22px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        display: none;
+        margin: 0;
+      }
+
+      .nav-menu.active {
+        display: flex;
+      }
+
+      .header-actions {
+        margin-left: auto;
+      }
+
+      .login-link span:last-child {
+        display: none;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 767px) {
+      main {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .top-navbar {
+        position: static;
+      }
+
+      .top-navbar-inner {
+        padding: 14px 6px;
+      }
+
+      .top-brand img {
+        height: 50px;
+      }
+
+      .top-nav-collapse {
+        gap: 12px;
+        padding: 12px;
+      }
+
+      .top-nav-links {
+        width: 100%;
+        font-size: 1.05rem;
+      }
+
+      .top-nav-right {
+        width: 100%;
+        gap: 10px;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      main .container {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .navbar {
+        min-height: 72px;
+      }
+
+      .brand-logo {
+        width: 170px;
+      }
+
+      .book-btn {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        margin-left: -12px;
+        margin-right: -12px;
+        padding: 36px 12px 32px;
+      }
+
+      .hero-buttons,
+      .cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-buttons .btn,
+      .hero-buttons .btn-outline,
+      .cta-actions .btn,
+      .cta-actions .btn-outline {
+        width: 100%;
+      }
+
+      .hero-form-wrap {
+        max-width: 100%;
+      }
+
+      .stats-band-inner,
+      .services-grid,
+      .process-grid,
+      .form-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .service-card-bg {
+        min-height: 264px;
+        max-height: 376px;
+      }
+
+      .about,
+      .services,
+      .benefits,
+      .process,
+
+      .faq,
+      .contact {
+        padding: 64px 0;
+      }
+
+      .contact-card,
+      .contact-form-wrap,
+      .cta-box {
+        padding: 22px;
+      }
+
+      .faq-question {
+        padding: 18px;
+      }
+
+      .faq-answer {
+        padding: 0 18px;
+      }
+
+      .faq-item.active .faq-answer {
+        padding-bottom: 16px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 26px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      main {
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+
+      .hero {
+        margin-left: -8px;
+        margin-right: -8px;
+        padding: 28px 8px 24px;
+      }
+
+      main .container {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .top-navbar-inner {
+        min-height: 74px;
+        padding-left: 4px;
+        padding-right: 4px;
+      }
+
+      .top-brand img {
+        height: 44px;
+      }
+
+      .top-login-mobile,
+      .top-menu-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+
+      .top-nav-links {
+        gap: 2px;
+      }
+
+      .top-nav-right {
+        flex-wrap: nowrap;
+        gap: 10px;
+      }
+
+      .book-btn-small {
+        padding: 12px 18px;
+        font-size: 0.86rem;
+      }
+
+      .footer {
+        padding: 40px 0 24px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        padding-right: 0;
+        padding-top: 20px;
+        gap: 14px;
+      }
+
+      .footer-back-top {
+        position: static;
+        transform: none;
+        margin: 0 auto;
+      }
+
+      .footer-back-top:hover {
+        transform: scale(1.05);
+      }
+
+      .hero h1 {
+        font-size: clamp(1.95rem, 8.2vw, 2.45rem);
+      }
+
+      .hero-lead,
+      .section-text {
+        font-size: 15px;
+      }
+
+      .contact-card,
+      .contact-form-wrap {
+        padding: 18px;
+      }
+
+      .contact-point {
+        padding: 12px 12px;
+        gap: 10px;
+      }
+
+      .cta-box {
+        padding: 42px 18px;
+      }
+    }
+
+ 
+/* why */
+.digicare-benefits {
+  padding: 90px 0;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.benefits-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 50px;
+}
+
+.section-title {
+  font-size: 2.3rem;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 14px;
+  line-height: 1.25;
+}
+
+.section-title .accent-orange {
+  color: #ff7a00;
+  font-weight: 600;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #666;
+  margin: 0;
+}
+
+/* Grid */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* Card */
+.benefit-card {
+  background: #ffffff;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Image */
+.benefit-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.benefit-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Content */
+.benefit-content {
+  padding: 24px 22px 26px;
+  text-align: left;
+}
+
+.benefit-card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.benefit-card p {
+  font-size: 0.95rem;
+  color: #5b5b5b;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Tablet */
+@media (max-width: 991px) {
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .benefit-image {
+    height: 210px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 575px) {
+  .digicare-benefits {
+    padding: 65px 0;
+  }
+
+  .section-title {
+    font-size: 1.9rem;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .benefit-image {
+    height: 220px;
+  }
+
+  .benefit-content {
+    text-align: center;
+  }
+}
+
+/*  */
+
+    .testimonials {
+      padding: 80px 0;
+      background: #f7f7f7;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 50px;
+    }
+
+    .section-title .accent-orange {
+      color: #ff7a00;
+    }
+
+    /* GRID */
+    .testimonial-track {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    /* CARD */
+    .testimonial-card {
+      background: #fff;
+      padding: 30px 20px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    /* CLIENT CENTER */
+    .client {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* IMAGE CENTER */
+    .client img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 12px;
+    }
+
+    /* NAME */
+    .client strong {
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+
+    /* STARS */
+    .stars {
+      color: #ffb400;
+      font-size: 0.9rem;
+      margin-bottom: 5px;
+    }
+
+    /* COUNTRY */
+    .client span {
+      font-size: 0.85rem;
+      color: #777;
+      margin-bottom: 15px;
+    }
+
+    /* TEXT */
+    .testimonial-card p {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 991px) {
+      .testimonial-track {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 575px) {
+      .testimonial-track {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body class="loading">
+  <div class="page-loader" id="pageLoader" aria-label="Loading">
+    <img class="page-loader-logo" src="image/logo.png" alt="PREHAB Loading Logo" />
+  </div>
+
+  <header class="top-navbar">
+    <div class="container">
+      <div class="top-navbar-inner">
+        <a href="#contact" class="top-login-mobile" aria-label="Log In">
+          <i class="fa-solid fa-user"></i>
+        </a>
+
+        <a href="#home" class="top-brand">
+          <img src="image/logo.png" alt="PREHAB DigiCare" />
+        </a>
+
+        <button class="top-menu-toggle" id="topMenuToggle" aria-label="Toggle navigation" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="top-nav-collapse" id="topNavCollapse">
+          <nav class="top-nav-links">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#store">Store</a>
+            <a href="#blog">Blog</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#careers">Careers</a>
+            <a href="#courses">Courses</a>
+          </nav>
+
+          <div class="top-nav-right">
+            <a href="#contact" class="login-link" aria-label="Log In">
+              <span class="login-icon"><i class="fa-solid fa-user"></i></span>
+            </a>
+            <a href="#contact" class="book-btn-small">Book Appointment</a>
+            <a href="#contact" class="cart-link" aria-label="Cart">
+              <span class="cart-icon"><i class="fa-solid fa-bag-shopping"></i></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <h1>Clinical Excellence, Digitally Delivered.</h1>
+            <p class="hero-lead">
+              Expert Physiotherapy, Nutrition, and Fitness—Personalized for your recovery and accessible from anywhere
+              in the world.
+            </p>
+            <div class="hero-points">
+              <span>Physiotherapy: Musculoskeletal & Sport</span>
+              <span>Nutrition: Clinical & Sports</span>
+              <span>Fitness training</span>
+            </div>
+            <div class="hero-buttons">
+              <a href="#contact" class="btn">
+                Book Consultation
+                <span class="arrow">→</span>
+              </a>
+              <a href="tel:+918867205650" class="btn-outline">
+                Call Now
+                <span class="arrow">☎</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-form-wrap">
+            <form class="hero-lead-form" id="heroLeadForm" novalidate>
+              <h2>Consult with PREHAB DigiCare experts</h2>
+              <p class="hero-form-sub">Evidence-based online care for pain, posture, and rehabilitation</p>
+
+              <label class="hero-field">
+                <span class="hero-field-icon" aria-hidden="true"><i class="fa-solid fa-user"></i></span>
+                <input type="text" name="hero_name" autocomplete="name" placeholder="Your Name" required />
+              </label>
+
+              <label class="hero-field">
+                <span class="hero-field-icon" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                <input type="email" name="hero_email" autocomplete="email" placeholder="Your Email (Optional)" />
+              </label>
+
+              <div class="hero-field">
+                <span class="hero-field-icon" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+                <select class="hero-cc" name="hero_cc" aria-label="Country code">
+                  <option value="+91" selected>🇮🇳 India +91</option>
+                  <option value="+971">🇦🇪 Dubai (UAE) +971</option>
+                  <option value="+46">🇸🇪 Sweden +46</option>
+                  <option value="+49">🇩🇪 Germany +49</option>
+                  <option value="+33">🇫🇷 France +33</option>
+                  <option value="+61">🇦🇺 Australia +61</option>
+                  <option value="+44">🇬🇧 UK +44</option>
+                  <option value="+1">🇺🇸 US +1</option>
+                  <option value="+1">🇨🇦 Canada +1</option>
+                  <option value="+256">🇺🇬 Uganda +256</option>
+                  <option value="+65">🇸🇬 SG +65</option>
+                </select>
+                <input type="tel" name="hero_phone" autocomplete="tel" inputmode="tel" placeholder="Phone number"
+                  required />
+              </div>
+
+              <button type="submit" class="hero-submit">Submit</button>
+
+              <div class="hero-trust">
+                <div class="hero-trust-block">
+                  <i class="fa-brands fa-google" aria-hidden="true"></i>
+                  <span>Rating 4.8</span>
+                  <span class="hero-stars gold" aria-hidden="true">★★★★★</span>
+                </div>
+                <div class="hero-trust-block">
+                  <span class="hero-trust-label">Excellent</span>
+                  <span class="hero-stars green" aria-hidden="true">★★★★★</span>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+ <section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <!-- LEFT CONTENT -->
+      <div class="about-text-block">
+
+        <!-- TITLE -->
+        <h2 class="section-title">
+          <span class="title-bold">Clinical Excellence,</span><br>
+          <span class="title-light">Digitally Delivered.</span>
+        </h2>
+
+        <!-- PREHAB TEXT -->
+        <p class="about-intro">
+          We are the digital evolution of
+        </p>
+
+        <p class="about-prehab">
+          <strong>PREHAB | Musculoskeletal and Sports Health Clinics.</strong>
+        </p>
+
+        <!-- BODY -->
+        <p>
+          By combining high-level clinical expertise with modern telehealth technology, we provide
+          elite <strong>Physiotherapy, Strength & Conditioning</strong>, and
+          <strong>Nutrition</strong> consultations to anyone, anywhere.
+        </p>
+
+        <p>
+          From corporate wellness for busy professionals to performance tracking for athletes on the road,
+          Digi <span class="bold">Care</span> ensures your health journey is never interrupted by distance.
+        </p>
+
+      </div>
+
+      <!-- RIGHT IMAGE -->
+      <div class="about-image">
+        <img src="image/indian-physician-.jpg"
+          alt="Online consultation with physiotherapist" />
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+  padding: 80px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* TITLE */
+.section-title {
+  font-size: 30px;
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+
+/* Clinical Excellence → Bold Orange */
+.title-bold {
+  font-weight: 700;
+  color: #f97316;
+}
+
+/* Digitally Delivered → Normal Black */
+.title-light {
+  font-weight: 400;
+  color: #111827;
+}
+
+/* TEXT */
+.about-text-block p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #1f2937;
+  margin-bottom: 14px;
+}
+
+.about-intro {
+  margin-top: 10px;
+}
+
+.about-prehab {
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Digi Care styling */
+.bold {
+  font-weight: 700;
+}
+
+/* IMAGE */
+.about-image img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  display: block;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+  .about-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .about-text-block p {
+    font-size: 15px;
+  }
+}
+</style>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="services-header">
+          <h2 class="section-title">
+            <span class="accent-orange">Our services</span> for better recovery
+          </h2>
+          <p class="section-text">
+            Specialized consultation and guided care for pain management, mobility, rehabilitation, and performance
+            recovery.
+          </p>
+        </div>
+
+        <div class="services-grid">
+
+          <!-- Card 1 -->
+          <article class="service-card">
+            <img src="image/Joint Pain.jpg" alt="DigiCare | PHYSICAL THERAPY" class="service-image" />
+            <div class="service-overlay"></div>
+
+            <div class="service-card-body">
+              <h3>DigiCare | PHYSICAL THERAPY</h3>
+              <p>
+                Online consultation for neck pain, back pain, shoulder pain, stiffness, and movement restrictions.
+              </p>
+
+              <div class="service-btns">
+                <a href="JointandMusclePain.html" class="view-btn">View More</a>
+                <a href="#contact" class="book-btn">Book Your Slot</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="service-card">
+            <img src="image/arthritis.jpg" alt="DigiCare | NUTRITION" class="service-image" />
+            <div class="service-overlay"></div>
+
+            <div class="service-card-body">
+              <h3>DigiCare | NUTRITION</h3>
+              <p>
+                Support for pain relief, mobility improvement, joint stability, and better daily activity planning.
+              </p>
+
+              <div class="service-btns">
+                <a href="nutrition.html" class="view-btn">View More</a>
+                <a href="#contact" class="book-btn">Book Your Slot</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="service-card">
+            <img src="image/lifestyledisses.jpg" alt="DigiCare | Fitness training" class="service-image" />
+            <div class="service-overlay"></div>
+
+            <div class="service-card-body">
+              <h3>DigiCare | FITNESS TRAINING </h3>
+              <p>
+                Guidance for posture correction, sedentary pain, desk-job strain, and poor movement habits.
+              </p>
+
+              <div class="service-btns">
+                <a href="JointandMusclePain.html" class="view-btn">View More</a>
+                <a href="#contact" class="book-btn">Book Slot</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .services {
+        padding: 70px 0;
+        background: #f3f3f3;
+      }
+
+      .services-header {
+        text-align: center;
+        margin-bottom: 35px;
+      }
+
+      .section-title {
+        font-size: 2.1rem;
+        font-weight: 800;
+        color: #1c2a4d;
+      }
+
+      .accent-orange {
+        color: #ff6a00;
+      }
+
+      .section-text {
+        max-width: 720px;
+        margin: 0 auto;
+        font-size: 0.95rem;
+        color: #6b7280;
+        line-height: 1.6;
+      }
+
+      /* GRID */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      /* CARD */
+      .service-card {
+        position: relative;
+        min-height: 300px;
+        /* reduced */
+        border-radius: 14px;
+        overflow: hidden;
+      }
+
+      .service-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .service-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.9),
+            rgba(0, 0, 0, 0.2));
+      }
+
+      /* CONTENT */
+      .service-card-body {
+        position: relative;
+        z-index: 2;
+        min-height: 300px;
+        padding: 16px 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        color: #fff;
+      }
+
+      /* TEXT */
+      .service-card-body h3 {
+        font-size: 1rem;
+        margin-bottom: 6px;
+      }
+
+      .service-card-body p {
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+        line-height: 1.4;
+      }
+
+      /* BUTTONS */
+      .service-btns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .service-btns a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 6px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        border-radius: 6px;
+        text-decoration: none;
+        white-space: normal;
+        min-height: 36px;
+      }
+
+      /* BUTTON STYLES */
+      .view-btn {
+        border: 1px solid #fff;
+        color: #fff;
+      }
+
+      .book-btn {
+        background: #ff6a00;
+        color: #fff;
+      }
+
+      /* TABLET */
+      @media (max-width: 1024px) {
+        .services-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      /* MOBILE */
+      @media (max-width: 768px) {
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section-title {
+          font-size: 1.8rem;
+        }
+
+        .service-card,
+        .service-card-body {
+          min-height: 320px;
+        }
+      }
+
+      /* SMALL MOBILE */
+      @media (max-width: 480px) {
+
+        .service-card,
+        .service-card-body {
+          min-height: 330px;
+        }
+
+        .service-btns a {
+          font-size: 0.7rem;
+          padding: 8px 5px;
+        }
+      }
+    </style>
+
+    <section class="process">
+      <div class="container">
+        <h2 class="process-title">
+          <span class="process-title-prehab">PREHAB</span>
+          <span class="process-title-digi">Digi</span>
+          <span class="process-title-care">Care</span>
+        </h2>
+
+        <p class="process-subtitle">
+          A guided online recovery journey designed for assessment, action, and measurable progress.
+        </p>
+
+        <div class="process-wrapper">
+
+          <div class="process-step">
+            <div class="icon"><i class="fa-solid fa-phone"></i></div>
+            <p>Schedule First Consultation</p>
+          </div>
+
+          <div class="process-step">
+            <div class="icon"><i class="fa-solid fa-clipboard-list"></i></div>
+            <p>Online Physical Health Assessment</p>
+          </div>
+
+          <div class="process-step">
+            <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
+            <p>Goal-Based Exercise / Nutrition Program Design</p>
+          </div>
+
+          <div class="process-step">
+            <div class="icon"><i class="fa-solid fa-trophy"></i></div>
+            <p>Achieve Set Goals</p>
+          </div>
+
+          <div class="process-step active">
+            <div class="icon"><i class="fa-solid fa-circle-check"></i></div>
+            <p>Re-Assessment & Progress as Per Milestones Achieved</p>
+          </div>
+
+          <div class="process-step">
+            <div class="icon"><i class="fa-solid fa-arrows-rotate"></i></div>
+            <p>Regular Follow-Ups & Progress Tracking</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .process {
+        padding: 80px 0;
+        background: linear-gradient(180deg, #fff8f3 0%, #f5f5f5 100%);
+        overflow: hidden;
+      }
+
+      .process .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .process-title {
+        text-align: center;
+        font-size: 2.8rem;
+        margin-bottom: 12px;
+        line-height: 1.15;
+        color: #111;
+      }
+
+      /* PREHAB → bold + orange */
+      .process-title-prehab {
+        font-weight: 800;
+        color: #ff6a00;
+      }
+
+      /* Digi → normal */
+      .process-title-digi {
+        font-weight: 400;
+        color: #111827;
+        margin-left: 6px;
+      }
+
+      /* Care → bold */
+      .process-title-care {
+        font-weight: 700;
+        color: #111827;
+        margin-left: 4px;
+      }
+
+      .process-subtitle {
+        text-align: center;
+        max-width: 760px;
+        margin: 0 auto 60px;
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: #4b5563;
+      }
+
+      .process-wrapper {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(220px, 1fr));
+        gap: 54px 54px;
+        align-items: center;
+        justify-items: center;
+        max-width: 1120px;
+        margin: 0 auto;
+      }
+
+      .process-wrapper::before,
+      .process-wrapper::after {
+        content: "";
+        position: absolute;
+        left: 120px;
+        right: 120px;
+        height: 2px;
+        background: #d6d6d6;
+        z-index: 0;
+      }
+
+      .process-wrapper::before {
+        top: 72px;
+      }
+
+      .process-wrapper::after {
+        top: 192px;
+      }
+
+      .process-step {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        min-height: 88px;
+        background: #ffffff;
+        border-radius: 999px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 20px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        border: 1px solid #f1e8e1;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .process-step:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.10);
+      }
+
+      .process-step:nth-child(3)::after {
+        content: "";
+        position: absolute;
+        right: -28px;
+        top: 44px;
+        width: 44px;
+        height: 116px;
+        border: 2px solid #d6d6d6;
+        border-left: none;
+        border-radius: 0 44px 44px 0;
+      }
+
+      .icon {
+        width: 56px;
+        height: 56px;
+        min-width: 56px;
+        border-radius: 50%;
+        background: #fff3eb;
+        display: grid;
+        place-items: center;
+        color: #ff6a00;
+        font-size: 22px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      }
+
+      .process-step.active {
+        background: #ff6a00;
+      }
+
+      .process-step.active .icon {
+        background: #111827;
+        color: #fff;
+      }
+
+      .process-step p {
+        margin: 0;
+        font-size: 0.95rem;
+        line-height: 1.35;
+        font-weight: 700;
+        color: #333;
+      }
+
+      .process-step.active p {
+        color: #fff;
+      }
+
+      .process-step:nth-child(4),
+      .process-step:nth-child(5),
+      .process-step:nth-child(6) {
+        margin-top: 8px;
+      }
+
+      @media (max-width: 1024px) {
+        .process-title {
+          font-size: 2.3rem;
+        }
+
+        .process-subtitle {
+          font-size: 1rem;
+          margin-bottom: 50px;
+        }
+
+        .process-wrapper {
+          gap: 34px 26px;
+          grid-template-columns: repeat(3, minmax(180px, 1fr));
+        }
+
+        .process-wrapper::before {
+          left: 90px;
+          right: 90px;
+          top: 70px;
+        }
+
+        .process-wrapper::after {
+          left: 90px;
+          right: 90px;
+          top: 186px;
+        }
+
+        .process-step:nth-child(3)::after {
+          right: -20px;
+          width: 34px;
+          height: 108px;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .process {
+          padding: 60px 0;
+        }
+
+        .process-title {
+          font-size: 2rem;
+        }
+
+        .process-subtitle {
+          font-size: 0.95rem;
+          margin-bottom: 36px;
+        }
+
+        .process-wrapper {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+
+        .process-wrapper::before,
+        .process-wrapper::after,
+        .process-step:nth-child(3)::after {
+          display: none;
+        }
+
+        .process-step {
+          border-radius: 24px;
+        }
+      }
+    </style>
+
+   <section class="digicare-benefits">
+  <div class="container">
+
+    <div class="benefits-header">
+      <h2 class="section-title">
+        Benefits of PREHAB <span class="accent-orange">DigiCare</span>
+      </h2>
+      <p class="section-subtitle">
+        Expert-led digital physiotherapy designed for convenience, accessibility, and better recovery outcomes.
+      </p>
+    </div>
+
+    <div class="benefits-grid">
+
+      <div class="benefit-card">
+        <div class="benefit-image">
+          <img src="image/doctor-patient-shaking-hands.jpg" alt="Convenient online physiotherapy consultation">
+        </div>
+        <div class="benefit-content">
+          <h3>Convenient Care</h3>
+          <p>Consult with expert physiotherapists from the comfort of your home, without the need to travel.</p>
+        </div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-image">
+          <img src="image/smart-watch-home.jpg" alt="Time-saving digital physiotherapy service">
+        </div>
+        <div class="benefit-content">
+          <h3>Time-Saving</h3>
+          <p>Skip long commutes and waiting rooms with streamlined consultations and follow-up sessions.</p>
+        </div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-image">
+          <img src="image/examination.jpg" alt="Affordable online rehabilitation support">
+        </div>
+        <div class="benefit-content">
+          <h3>Cost-Effective</h3>
+          <p>Reduce travel expenses and access professional rehabilitation support in a more efficient way.</p>
+        </div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-image">
+          <img src="image/phone-white.jpg" alt="Accessible online physiotherapy anywhere">
+        </div>
+        <div class="benefit-content">
+          <h3>Better Accessibility</h3>
+          <p>Get access to specialized physiotherapy guidance across locations, wherever you are.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+    <section class="why-prehab-clean">
+      <div class="container">
+        <div class="why-prehab-wrap">
+
+          <!-- Left Content -->
+          <div class="why-prehab-content">
+            <h2 class="section-title">
+              Why PREHAB <span class="accent-orange">DigiCare?</span>
+            </h2>
+
+            <p class="why-prehab-text">
+              At PREHAB DigiCare, we’ve redesigned the digital health experience by blending expertise with cutting-edge
+              telerehabilitation. We don’t just offer “video calls”; we provide a high-performance clinical environment
+              delivered directly to your space.
+            </p>
+
+            <p class="why-prehab-text">
+              Our evidence-based protocols—refined through years of working with professional sports teams and clinical
+              populations—are now accessible anywhere in the world. With DigiCare, your recovery isn’t limited by
+              geography; it’s powered by expert coaching, personalized data, and the same rigorous standards as our
+              physical clinics.
+            </p>
+
+            <div class="why-stats">
+
+              <div class="stat-box">
+                <h3><span class="counter" data-target="12">0</span>+</h3>
+                <p>Years Experience</p>
+              </div>
+
+              <div class="stat-box">
+                <h3><span class="counter" data-target="500">0</span>+</h3>
+                <p>Happy Patients</p>
+              </div>
+
+              <div class="stat-box">
+                <h3><span class="counter" data-target="98">0</span>%</h3>
+                <p>Success Rate</p>
+              </div>
+
+              <div class="stat-box">
+                <h3>24/7</h3>
+                <p>Seamless Accessibility</p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Right Image -->
+          <div class="why-prehab-image">
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1200&q=80"
+              alt="Benefits of online physiotherapy" />
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .why-prehab-clean {
+        padding: 90px 0;
+        background: #ffffff;
+      }
+
+      .why-prehab-wrap {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items: center;
+        gap: 50px;
+      }
+
+      .why-stats {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        margin-top: 40px;
+        flex-wrap: wrap;
+      }
+
+      .why-stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin-top: 40px;
+        text-align: center;
+      }
+
+      .stat-box {
+        padding: 20px 10px;
+      }
+
+      .stat-box h3 {
+        font-size: 42px;
+        font-weight: 500;
+        color: #e76f00;
+        margin-bottom: 6px;
+      }
+
+      .stat-box p {
+        font-size: 14px;
+        color: #555;
+      }
+
+      /* 🔥 Tablet */
+      @media (max-width: 992px) {
+        .why-stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      /* 🔥 Mobile */
+      @media (max-width: 576px) {
+        .why-stats {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Text */
+      .why-prehab-text {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #4b5563;
+        margin-bottom: 30px;
+        max-width: 650px;
+      }
+
+      /* Points */
+      .why-points {
+        display: grid;
+        gap: 14px;
+        max-width: 420px;
+      }
+
+      .why-point {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background: #fff7f2;
+        /* light orange */
+        padding: 14px 18px;
+        border-radius: 10px;
+        font-weight: 600;
+        color: #1f2230;
+        border: 1px solid #ffe2cf;
+      }
+
+      /* Icon */
+      .why-point i {
+        color: #FE6B09;
+        font-size: 14px;
+      }
+
+      /* Image */
+      .why-prehab-image img {
+        width: 100%;
+        max-width: 420px;
+        border-radius: 20px;
+        object-fit: cover;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .why-prehab-wrap {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .why-prehab-clean {
+          padding: 60px 0;
+        }
+
+        .why-prehab-text {
+          font-size: 15px;
+        }
+      }
+
+      @media (max-width: 576px) {
+  .why-stats {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+    gap: 16px;
+  }
+
+  .stat-box h3 {
+    font-size: 32px; /* slightly smaller for mobile */
+  }
+
+  .stat-box p {
+    font-size: 13px;
+  }
+}
+    </style>
+
+
+
+
+
+    <div class="container">
+      <div class="cta-box">
+        <h2><span class="accent-orange">Start today</span> Your online physiotherapy consultation</h2>
+        <p>
+          Take the first step toward pain relief, better mobility, and guided recovery with expert support from PREHAB
+          DigiCare.
+        </p>
+        <div class="cta-actions">
+          <a href="#contact" class="btn">
+            Book Appointment
+            <span class="arrow">→</span>
+          </a>
+          <a href="tel:+918867205650" class="btn-outline">
+            Speak to Us
+            <span class="arrow">☎</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+
+        <div class="testimonials-header">
+          <h2 class="section-title">
+            <span class="accent-orange">Testimonials</span>
+
+          </h2>
+        </div>
+
+        <div class="testimonial-slider">
+
+          <div class="testimonial-viewport">
+            <div class="testimonial-track">
+
+              <!-- CARD -->
+              <article class="testimonial-card">
+                <div class="client">
+                  <img
+                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80">
+
+                  <strong>Ayesha R.</strong>
+
+                  <div class="stars">
+                    ★★★★★
+                  </div>
+
+                  <span>UK</span>
+                </div>
+
+                <p>
+                  The online consultation was clear, comfortable, and genuinely helpful.
+                  Booking was simple and the guidance was easy to follow.
+                </p>
+              </article>
+
+              <!-- CARD -->
+              <article class="testimonial-card">
+                <div class="client">
+                  <img
+                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80">
+
+                  <strong>Rahul K.</strong>
+
+                  <div class="stars">
+                    ★★★★★
+                  </div>
+
+                  <span>US</span>
+                </div>
+
+                <p>
+                  I was surprised at how effective the consultation was. The website looked modern, clean, and
+                  trustworthy.
+                </p>
+              </article>
+
+              <!-- CARD -->
+              <article class="testimonial-card">
+                <div class="client">
+                  <img
+                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80">
+
+                  <strong>Alina Rao</strong>
+
+                  <div class="stars">
+                    ★★★★★
+                  </div>
+
+                  <span>Singapore</span>
+                </div>
+
+                <p>
+                  Professional, patient-friendly, and easy to use on mobile. I got useful advice for posture, exercises,
+                  and daily habits.
+                </p>
+              </article>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="faq-header">
+          <h2 class="section-title"><span class="accent-orange">FAQs</span> Common questions</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item active">
+            <button class="faq-question" type="button">
+              <span>Can physiotherapy consultation really happen online?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. Many assessments, posture checks, movement reviews, pain discussions, and guided exercise plans
+                can be done effectively online.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Who can benefit from this consultation?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>People with back pain, neck pain, arthritis, posture issues, sports injuries, mobility limitations, and
+                post-operative recovery needs can benefit.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Is this page mobile responsive?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. The layout, menu, service cards, call-to-action buttons, and enquiry form are optimized for mobile
+                devices.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>How do I book an appointment?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>You can use the appointment form, tap the call button, or connect via WhatsApp for a faster booking
+                flow.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h2 class="section-title"><span class="accent-orange">Book your consultation</span> now</h2>
+
+            <div class="contact-points">
+              <div class="contact-point">
+                <div class="contact-icon">☎</div>
+                <div>
+                  <strong>Call for quick booking</strong>
+                  <span>+91 8867205650</span>
+                </div>
+              </div>
+
+              <div class="contact-point">
+                <div class="contact-icon">✉</div>
+                <div>
+                  <strong>Email support</strong>
+                  <span>contact@prehabclinics.com</span>
+                </div>
+              </div>
+
+              <div class="contact-point">
+                <div class="contact-icon">⏱</div>
+                <div>
+                  <strong>Consultation availability</strong>
+                  <span>Monday to Saturday | 8:00 AM to 8:00 PM</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-wrap">
+            <h3 class="contact-form-title">Appointment Form</h3>
+
+            <form class="contact-form">
+              <div class="form-row">
+                <div class="field">
+                  <label for="name">Full Name</label>
+                  <input id="name" type="text" placeholder="Enter your full name" />
+                </div>
+
+                <div class="field">
+                  <label for="phone">Phone Number</label>
+                  <input id="phone" type="tel" placeholder="Enter your mobile number" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="field">
+                  <label for="email">Email Address</label>
+                  <input id="email" type="email" placeholder="Enter your email" />
+                </div>
+
+                <div class="field">
+                  <label for="service">Select Service</label>
+                  <select id="service">
+                    <option>Choose a service</option>
+                    <option>Joint & Muscle Pain</option>
+                    <option>Arthritis Care</option>
+                    <option>Lifestyle Disorders</option>
+                    <option>Post-Operative Rehab</option>
+                    <option>Strength & Conditioning</option>
+                    <option>Sports Recovery</option>
+                    <option>Fall Prevention</option>
+                    <option>Pilates Training</option>
+                    <option>Nutrition Guidance</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="message">Describe Your Concern</label>
+                <textarea id="message"
+                  placeholder="Tell us about your pain, injury, condition, or recovery goal"></textarea>
+              </div>
+
+              <button type="submit" class="btn">
+                Submit Appointment Request
+                <span class="arrow">→</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Placeholder sections for navbar items -->
+    <section id="store" style="padding:40px 0 0;"></section>
+    <section id="blog" style="padding:0;"></section>
+    <section id="gallery" style="padding:0;"></section>
+    <section id="careers" style="padding:0;"></section>
+    <section id="courses" style="padding:0;"></section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-logo">
+          <img
+            src="https://static.wixstatic.com/media/377b16_10d7d5bf2d244f48ae237939ccd14569~mv2.png/v1/fill/w_509,h_509,al_c,lg_1,q_85,enc_avif,quality_auto/Asset%2096_100x.png"
+            alt="PREHAB Footer Logo" />
+        </div>
+
+        <div class="footer-contact">
+          <div class="footer-heading">Contact</div>
+          <p>
+            2934, Triveni Arcade, Second Floor, 2nd Stage D Block,<br />
+            Mahakavi Kuvempu Rd, Rajajinagar,<br />
+            Bengaluru, Karnataka 560010<br />
+            Landmark Mahakavi Kuvempu Metro Station
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="#careers">Careers</a>
+        </div>
+
+        <div class="footer-meta">
+          <div class="footer-heading">Policies</div>
+          <a href="#home">Privacy Policy</a>
+          <a href="#home">Terms and Conditions</a>
+          <a href="#home">Accessibility Statement</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-legal">
+          SARVFIT Healthcare Pvt Ltd | CIN U86900KA2024PTC190092 | GSTIN 29ABNCS7588L1Z3
+        </p>
+        <a href="#home" class="footer-back-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"
+            aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const pageLoader = document.getElementById('pageLoader');
+    const topNavbar = document.querySelector('.top-navbar');
+    const topMenuToggle = document.getElementById('topMenuToggle');
+    const topNavCollapse = document.getElementById('topNavCollapse');
+    const topNavLinks = document.querySelectorAll('.top-nav-links a, .top-nav-right a');
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    window.addEventListener('load', () => {
+      if (pageLoader) {
+        pageLoader.classList.add('hidden');
+      }
+      document.body.classList.remove('loading');
+    });
+
+    function closeTopMenu() {
+      if (!topNavbar || !topMenuToggle) return;
+      topNavbar.classList.remove('open');
+      topMenuToggle.setAttribute('aria-expanded', 'false');
+    }
+
+    if (topMenuToggle && topNavbar && topNavCollapse) {
+      topMenuToggle.addEventListener('click', () => {
+        const isOpen = topNavbar.classList.toggle('open');
+        topMenuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      topNavLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 1024) {
+            closeTopMenu();
+          }
+        });
+      });
+    }
+
+    faqItems.forEach(item => {
+      const btn = item.querySelector('.faq-question');
+      btn.addEventListener('click', () => {
+        faqItems.forEach(faq => {
+          if (faq !== item) faq.classList.remove('active');
+        });
+        item.classList.toggle('active');
+      });
+    });
+
+    document.querySelector('.contact-form')?.addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Demo form submitted. Connect this form to your backend, email, or WhatsApp integration.');
+    });
+
+    document.getElementById('heroLeadForm')?.addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Thanks! We will contact you shortly. Connect this form to your backend or CRM.');
+    });
+
+    (function () {
+      const band = document.getElementById('statsCounter');
+      if (!band) return;
+
+      const values = band.querySelectorAll('.stat-value');
+      const duration = 1400;
+
+      function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+      }
+
+      function runCounters() {
+        values.forEach((el) => {
+          const target = parseFloat(el.dataset.target, 10);
+          const suffix = el.dataset.suffix !== undefined ? el.dataset.suffix : '';
+          const start = performance.now();
+
+          function tick(now) {
+            const p = Math.min((now - start) / duration, 1);
+            const current = Math.round(easeOutCubic(p) * target);
+            el.textContent = current + suffix;
+            if (p < 1) {
+              requestAnimationFrame(tick);
+            } else {
+              el.textContent = Math.round(target) + suffix;
+            }
+          }
+          requestAnimationFrame(tick);
+        });
+      }
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        values.forEach((el) => {
+          const target = parseFloat(el.dataset.target, 10);
+          const suffix = el.dataset.suffix !== undefined ? el.dataset.suffix : '';
+          el.textContent = Math.round(target) + suffix;
+        });
+        return;
+      }
+
+      let started = false;
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting || started) return;
+            started = true;
+            runCounters();
+            io.unobserve(band);
+          });
+        },
+        { threshold: 0.28, rootMargin: '0px 0px -8% 0px' }
+      );
+
+      io.observe(band);
+    })();
+
+    (function () {
+      const slider = document.querySelector('.testimonial-slider');
+      if (!slider) return;
+      const viewport = slider.querySelector('.testimonial-viewport');
+      const track = document.getElementById('testimonialTrack');
+      const prevBtn = slider.querySelector('.testimonial-prev');
+      const nextBtn = slider.querySelector('.testimonial-next');
+      if (!viewport || !track || !prevBtn || !nextBtn) return;
+
+      const GAP = 22;
+
+      function useSmoothScroll() {
+        return !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      }
+
+      function stepPx() {
+        const card = track.querySelector('.testimonial-card');
+        if (!card) return 0;
+        return card.offsetWidth + GAP;
+      }
+
+      function maxScroll() {
+        return Math.max(0, viewport.scrollWidth - viewport.clientWidth);
+      }
+
+      prevBtn.addEventListener('click', function () {
+        const step = stepPx();
+        if (step <= 0) return;
+        const beh = useSmoothScroll() ? 'smooth' : 'auto';
+        if (viewport.scrollLeft <= 2) {
+          viewport.scrollTo({ left: maxScroll(), behavior: beh });
+        } else {
+          viewport.scrollBy({ left: -step, behavior: beh });
+        }
+      });
+
+      nextBtn.addEventListener('click', function () {
+        const step = stepPx();
+        if (step <= 0) return;
+        const beh = useSmoothScroll() ? 'smooth' : 'auto';
+        if (viewport.scrollLeft >= maxScroll() - 2) {
+          viewport.scrollTo({ left: 0, behavior: beh });
+        } else {
+          viewport.scrollBy({ left: step, behavior: beh });
+        }
+      });
+
+      window.addEventListener('resize', function () {
+        const m = maxScroll();
+        if (viewport.scrollLeft > m) viewport.scrollLeft = m;
+      });
+    })();
+  </script>
+
+  <script>
+    const counters = document.querySelectorAll('.counter');
+
+    counters.forEach(counter => {
+      const target = +counter.getAttribute('data-target');
+      let count = 0;
+
+      const update = () => {
+        const increment = target / 80;
+
+        if (count < target) {
+          count += increment;
+          counter.innerText = Math.ceil(count);
+          requestAnimationFrame(update);
+        } else {
+          counter.innerText = target;
+        }
+      };
+
+      update();
+    });
+  </script>
+</body>
+
+</html>
