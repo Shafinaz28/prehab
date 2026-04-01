@@ -68,48 +68,100 @@
 
 
   </a>
-  <header class="sticky top-0 z-[1100] border-b border-[#efefef] bg-white">
-    <div class="mx-auto w-[94%] max-w-[1320px]">
-      <div class="relative flex min-h-[84px] items-center justify-between gap-6 py-2">
+<header class="sticky top-0 z-[1100] border-b border-[#efefef] bg-white">
+  <div class="mx-auto w-[94%] max-w-[1320px]">
+    <div class="relative flex min-h-[84px] items-center justify-between gap-6 py-2">
 
-        <!-- Logo -->
-        <a href="#home" class="flex shrink-0 items-center whitespace-nowrap">
-          <img src="image/logo.png" alt="PREHAB DigiCare" class="h-[54px] w-auto block" />
+      <!-- Logo -->
+      <a href="#home" class="flex shrink-0 items-center whitespace-nowrap">
+        <img src="image/logo.png" alt="PREHAB DigiCare" class="h-[54px] w-auto block" />
+      </a>
+
+      <!-- Nav (Desktop Only) -->
+      <nav
+        class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-5 whitespace-nowrap text-[0.82rem] font-medium text-dark xl:flex">
+        <a href="#home" class="transition hover:text-primary">Home</a>
+        <a href="#services" class="transition hover:text-primary">Services</a>
+        <a href="#store" class="transition hover:text-primary">Store</a>
+        <a href="#blog" class="transition hover:text-primary">Blog</a>
+        <a href="#about" class="transition hover:text-primary">About</a>
+        <a href="#contact" class="transition hover:text-primary">Contact</a>
+        <a href="#gallery" class="transition hover:text-primary">Gallery</a>
+        <a href="#careers" class="transition hover:text-primary">Careers</a>
+        <a href="#courses" class="transition hover:text-primary">Courses</a>
+      </nav>
+
+      <!-- Right Actions -->
+      <div class="ml-auto flex items-center gap-3">
+
+        <!-- User Icon -->
+        <a href="#contact"
+          class="hidden sm:grid h-[42px] w-[42px] place-items-center rounded-full border border-primary bg-white text-primary transition hover:bg-[#fff7f2]">
+          <i class="fa-solid fa-user text-[1.02rem]"></i>
         </a>
 
-        <!-- Nav -->
-        <nav
-          class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-5 whitespace-nowrap text-[0.82rem] font-medium text-dark xl:flex">
-          <a href="#home" class="transition hover:text-primary">Home</a>
-          <a href="#services" class="transition hover:text-primary">Services</a>
-          <a href="#store" class="transition hover:text-primary">Store</a>
-          <a href="#blog" class="transition hover:text-primary">Blog</a>
-          <a href="#about" class="transition hover:text-primary">About</a>
-          <a href="#contact" class="transition hover:text-primary">Contact</a>
-          <a href="#gallery" class="transition hover:text-primary">Gallery</a>
-          <a href="#careers" class="transition hover:text-primary">Careers</a>
-          <a href="#courses" class="transition hover:text-primary">Courses</a>
-        </nav>
+        <!-- CTA Button -->
+        <a href="#contact"
+          class="hidden md:inline-block rounded-full bg-primary px-6 py-[12px] text-[0.9rem] font-bold text-white shadow-[0_6px_16px_rgba(254,107,9,0.25)] transition hover:-translate-y-[1px]">
+          Book Appointment
+        </a>
 
-        <!-- Right Actions -->
-        <div class="ml-auto flex items-center gap-4 whitespace-nowrap">
-          <a href="#contact"
-            class="grid h-[42px] w-[42px] place-items-center rounded-full border border-primary bg-white text-primary transition hover:bg-[#fff7f2]">
-            <i class="fa-solid fa-user text-[1.02rem]"></i>
-          </a>
+        <!-- Cart -->
+        <a href="#contact"
+          class="hidden sm:grid h-[42px] w-[42px] place-items-center rounded-full bg-primary text-white">
+          <i class="fa-solid fa-bag-shopping text-[0.85rem]"></i>
+        </a>
 
-          <a href="#contact"
-            class="hidden rounded-full bg-primary px-7 py-[13px] text-[0.95rem] font-bold text-white shadow-[0_6px_16px_rgba(254,107,9,0.25)] transition hover:-translate-y-[1px] sm:inline-block">
-            Book Appointment
-          </a>
+        <!-- Hamburger -->
+        <button id="menu-btn"
+          class="xl:hidden ml-1 grid h-[42px] w-[42px] place-items-center rounded-full border border-gray-300 text-dark">
+          <i class="fa-solid fa-bars text-lg"></i>
+        </button>
 
-          <a href="#contact" class="grid h-[42px] w-[42px] place-items-center rounded-full bg-primary text-white">
-            <i class="fa-solid fa-bag-shopping text-[0.85rem]"></i>
-          </a>
-        </div>
       </div>
+
     </div>
-  </header>
+  </div>
+</header>
+
+<div id="mobile-menu"
+  class="hidden fixed inset-0 z-[1200] bg-white px-6 py-6 overflow-y-auto xl:hidden">
+
+  <div class="mb-8 flex items-center justify-between border-b border-slate-200 pb-4">
+    <a href="#home" class="flex items-center">
+      <img src="image/logo.png" alt="PREHAB DigiCare" class="h-[48px] w-auto" />
+    </a>
+
+    <button id="close-menu"
+      class="grid h-[42px] w-[42px] place-items-center rounded-full border border-gray-300 text-dark">
+      <i class="fa-solid fa-xmark text-xl"></i>
+    </button>
+  </div>
+
+  <div class="flex flex-col gap-5 text-[1rem] font-semibold text-dark">
+    <a href="#home" class="border-b border-slate-100 pb-3">Home</a>
+    <a href="#services" class="border-b border-slate-100 pb-3">Services</a>
+    <a href="#store" class="border-b border-slate-100 pb-3">Store</a>
+    <a href="#blog" class="border-b border-slate-100 pb-3">Blog</a>
+    <a href="#about" class="border-b border-slate-100 pb-3">About</a>
+    <a href="#contact" class="border-b border-slate-100 pb-3">Contact</a>
+    <a href="#gallery" class="border-b border-slate-100 pb-3">Gallery</a>
+    <a href="#careers" class="border-b border-slate-100 pb-3">Careers</a>
+    <a href="#courses" class="border-b border-slate-100 pb-3">Courses</a>
+  </div>
+
+  <div class="mt-8 flex flex-col gap-3">
+    <a href="#contact"
+      class="inline-flex min-h-[50px] items-center justify-center rounded-full bg-primary px-6 text-[0.95rem] font-bold text-white">
+      Book Appointment
+    </a>
+
+    <a href="tel:+918867205650"
+      class="inline-flex min-h-[50px] items-center justify-center rounded-full border border-primary px-6 text-[0.95rem] font-bold text-primary">
+      Call Now
+    </a>
+  </div>
+</div>
 
   <!-- Hero -->
   <main>
@@ -146,35 +198,37 @@
             </p>
 
             <!-- POINTS -->
-            <div class="mb-6 grid gap-2 text-[0.9rem] font-semibold text-white/95 sm:text-[0.96rem]">
-              <span class="flex items-center gap-2.5">
-                <span class="h-[7px] w-[7px] rounded-full bg-primary shadow-[0_0_0_3px_rgba(254,107,9,0.25)]"></span>
-                Physiotherapy: Musculoskeletal & Sport
-              </span>
-              <span class="flex items-center gap-2.5">
-                <span class="h-[7px] w-[7px] rounded-full bg-primary shadow-[0_0_0_3px_rgba(254,107,9,0.25)]"></span>
-                Nutrition: Clinical & Sports
-              </span>
-              <span class="flex items-center gap-2.5">
-                <span class="h-[7px] w-[7px] rounded-full bg-primary shadow-[0_0_0_3px_rgba(254,107,9,0.25)]"></span>
-                Fitness training
-              </span>
-            </div>
+           <div class="mb-6 grid gap-2 text-[0.9rem] font-semibold text-white/95 sm:text-[0.96rem]">
 
-            <!-- BUTTONS -->
-            <div class="mt-1 flex flex-wrap items-center gap-3">
-              <a href="#contact"
-                class="inline-flex min-h-[56px] items-center justify-center gap-3 rounded-full bg-primary px-6 text-[0.95rem] font-bold text-white shadow-glow transition hover:-translate-y-[2px] hover:bg-primaryDark">
-                Book Consultation
-                <span class="grid h-[32px] w-[32px] place-items-center rounded-full bg-white/20 text-white">→</span>
-              </a>
+  <span class="flex items-center gap-2.5">
+    <span class="h-[7px] w-[7px] rounded-full bg-primary shadow-[0_0_0_3px_rgba(254,107,9,0.25)]"></span>
+    Physiotherapy: Musculoskeletal & Sports
+  </span>
 
-              <a href="tel:+918867205650"
-                class="inline-flex min-h-[56px] items-center justify-center gap-3 rounded-full border border-white/45 bg-white/10 px-6 text-[0.95rem] font-bold text-white backdrop-blur-sm transition hover:-translate-y-[2px] hover:bg-white/20 hover:border-white">
-                Call Now
-                <span class="grid h-[32px] w-[32px] place-items-center rounded-full bg-white/20 text-white">☎</span>
-              </a>
-            </div>
+  <span class="flex items-center gap-2.5">
+    <span class="h-[7px] w-[7px] rounded-full bg-primary shadow-[0_0_0_3px_rgba(254,107,9,0.25)]"></span>
+    Nutrition: Clinical & Sports
+  </span>
+
+  <span class="flex items-center gap-2.5">
+    <span class="h-[7px] w-[7px] rounded-full bg-primary shadow-[0_0_0_3px_rgba(254,107,9,0.25)]"></span>
+    Fitness Training
+  </span>
+
+</div>
+
+            <div class="mt-3 flex justify-center lg:justify-start">
+
+  <a href="tel:+918867205650"
+    class="inline-flex min-h-[56px] items-center justify-center gap-3 rounded-full bg-primary px-7 text-[1rem] font-bold text-white shadow-glow transition hover:-translate-y-[2px] hover:bg-primaryDark">
+    
+    Call Now to Speak with an Expert
+    
+    
+
+  </a>
+
+</div>
           </div>
 
           <!-- RIGHT FORM -->
@@ -267,25 +321,23 @@
             </h2>
 
             <!-- PREHAB TEXT -->
+            
+
             <p class="text-[17px] text-gray-800 mt-2 mb-2">
-              We are the digital evolution of
-            </p>
+  PREHAB DigiCare is built on years of clinical expertise in physiotherapy and sports health.
+</p>
 
-            <p class="text-[17px] font-bold text-gray-900 mb-3">
-              PREHAB | Musculoskeletal and Sports Health Clinics.
-            </p>
+<p class="text-[17px] font-bold text-gray-900 mb-3">
+  A modern digital platform for expert physiotherapy, fitness, and nutrition care.
+</p>
 
-            <!-- BODY -->
-            <p class="text-[17px] leading-[1.7] text-gray-800 mb-3">
-              By combining high-level clinical expertise with modern telehealth technology, we provide
-              elite <span class="font-semibold">Physiotherapy, Strength & Conditioning</span>, and
-              <span class="font-semibold">Nutrition</span> consultations to anyone, anywhere.
-            </p>
+<p class="text-[17px] leading-[1.7] text-gray-800 mb-3">
+  We combine advanced clinical knowledge with easy online access to help you recover from pain, improve mobility, and build long-term strength.
+</p>
 
-            <p class="text-[17px] leading-[1.7] text-gray-800">
-              From corporate wellness for busy professionals to performance tracking for athletes on the road,
-              Digi <span class="font-bold">Care</span> ensures your health journey is never interrupted by distance.
-            </p>
+<p class="text-[17px] leading-[1.7] text-gray-800">
+  Whether you're a working professional, athlete, or someone dealing with daily discomfort, PREHAB DigiCare ensures you get expert care—anytime, anywhere.
+</p>
 
           </div>
 
@@ -500,18 +552,28 @@
       </div>
 
       <!-- STEP 5 (Highlighted but same size) -->
-      <div class="relative bg-[#FE6B09] rounded-[16px] p-3 md:p-5 shadow-md hover:scale-[1.02] transition">
-        <span class="absolute top-2 right-2 w-6 h-6 rounded-full bg-white text-[#FE6B09] text-[10px] font-bold flex items-center justify-center">5</span>
+      <div class="relative bg-white rounded-[16px] border border-[#eee3da] p-3 md:p-5 shadow-sm hover:shadow-md transition">
+  
+  <span class="absolute top-2 right-2 w-6 h-6 rounded-full bg-[#FE6B09] text-white text-[10px] font-bold flex items-center justify-center">
+    5
+  </span>
 
-        <div class="flex flex-col items-center text-center gap-2">
-          <div class="w-11 h-11 rounded-xl bg-[#0F172A] text-white flex items-center justify-center text-[18px]">
-            <i class="fa-solid fa-circle-check"></i>
-          </div>
-          <h3 class="text-[0.85rem] md:text-[1rem] font-bold text-white">Re-Assessment</h3>
-          <p class="text-[0.75rem] text-white/90">Measure progress with milestones.</p>
-        </div>
-      </div>
+  <div class="flex flex-col items-center text-center gap-2">
+    
+    <div class="w-11 h-11 rounded-xl bg-[#fff2e8] text-[#FE6B09] flex items-center justify-center text-[18px]">
+      <i class="fa-solid fa-circle-check"></i>
+    </div>
 
+    <h3 class="text-[0.85rem] md:text-[1rem] font-bold text-[#0F172A]">
+      Re-Assessment
+    </h3>
+
+    <p class="text-[0.75rem] text-slate-500">
+      Measure progress with milestones.
+    </p>
+
+  </div>
+</div>
       <!-- STEP 6 -->
       <div class="relative bg-white rounded-[16px] border border-[#eee3da] p-3 md:p-5 shadow-sm hover:shadow-md transition">
         <span class="absolute top-2 right-2 w-6 h-6 rounded-full bg-[#FE6B09] text-white text-[10px] font-bold flex items-center justify-center">6</span>
@@ -641,110 +703,95 @@
   </div>
 </section>
 
-    <section class="py-16 md:py-20 bg-white">
-      <div class="max-w-[1200px] mx-auto px-5">
-        <div class="grid lg:grid-cols-[1.2fr_0.8fr] items-center gap-10 lg:gap-14">
+  <section class="py-16 md:py-20 bg-white">
+  <div class="max-w-[1200px] mx-auto px-5">
+    <div class="grid lg:grid-cols-[1.05fr_0.95fr] items-center gap-10 lg:gap-14">
 
-          <!-- Left Content -->
-          <div>
-            <h2 class="text-[2rem] md:text-[2.5rem] font-extrabold text-[#0F172A] leading-tight">
-              Why <span class="text-[#000000]">PREHAB</span>
-              <span class="text-[#FE6B09] font-normal">Digi</span><span class="text-[#FE6B09] font-bold">Care</span>?
-            </h2>
+      <!-- Left Content -->
+      <div>
+        <h2 class="text-[2rem] md:text-[2.5rem] font-extrabold text-[#0F172A] leading-tight">
+          Why Choose <span class="text-[#000000]">PREHAB</span>
+          <span class="text-[#FE6B09] font-normal">Digi</span><span class="text-[#FE6B09] font-bold">Care</span>?
+        </h2>
 
-            <p class="mt-5 text-[16px] leading-[1.8] text-slate-600 max-w-[650px]">
-              At PREHAB DigiCare, we’ve redesigned the digital health experience by blending expertise with cutting-edge
-              telerehabilitation. We don’t just offer video calls; we provide a high-performance clinical environment
-              delivered directly to your space.
-            </p>
+        <p class="mt-5 text-[16px] leading-[1.8] text-slate-600 max-w-[650px]">
+          PREHAB DigiCare brings together clinical expertise, personalised care, and the convenience of online consultation to help you recover with confidence from anywhere.
+        </p>
 
-            <p class="mt-5 text-[16px] leading-[1.8] text-slate-600 max-w-[650px]">
-              Our evidence-based protocols, refined through years of working with professional sports teams and clinical
-              populations, are now accessible anywhere in the world. With DigiCare, your recovery isn’t limited by
-              geography; it’s powered by expert coaching, personalized data, and the same rigorous standards as our
-              physical clinics.
-            </p>
+        <p class="mt-4 text-[16px] leading-[1.8] text-slate-600 max-w-[650px]">
+          From pain relief and mobility improvement to guided rehabilitation and ongoing follow-ups, DigiCare gives you expert support through every stage of your recovery journey.
+        </p>
 
-            <!-- Stats -->
-            <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-              <div class="rounded-2xl border border-[#fde6d5] bg-[#fff8f3] px-4 py-5">
-                <h3 class="text-[2rem] md:text-[2.4rem] font-bold text-[#FE6B09] leading-none">
-                  <span class="counter" data-target="12">0</span>+
-                </h3>
-                <p class="mt-2 text-[13px] md:text-[14px] text-slate-600">Years Experience</p>
-              </div>
-
-              <div class="rounded-2xl border border-[#fde6d5] bg-[#fff8f3] px-4 py-5">
-                <h3 class="text-[2rem] md:text-[2.4rem] font-bold text-[#FE6B09] leading-none">
-                  <span class="counter" data-target="500">0</span>+
-                </h3>
-                <p class="mt-2 text-[13px] md:text-[14px] text-slate-600">Happy Patients</p>
-              </div>
-
-              <div class="rounded-2xl border border-[#fde6d5] bg-[#fff8f3] px-4 py-5">
-                <h3 class="text-[2rem] md:text-[2.4rem] font-bold text-[#FE6B09] leading-none">
-                  <span class="counter" data-target="98">0</span>%
-                </h3>
-                <p class="mt-2 text-[13px] md:text-[14px] text-slate-600">Success Rate</p>
-              </div>
-
-              <div class="rounded-2xl border border-[#fde6d5] bg-[#fff8f3] px-4 py-5">
-                <h3 class="text-[2rem] md:text-[2.4rem] font-bold text-[#FE6B09] leading-none">24/7</h3>
-                <p class="mt-2 text-[13px] md:text-[14px] text-slate-600">Seamless Accessibility</p>
-              </div>
-            </div>
+        <!-- Stats -->
+        <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          <div class="rounded-2xl border border-[#fde6d5] bg-[#fff8f3] px-4 py-5">
+            <h3 class="text-[2rem] md:text-[2.4rem] font-bold text-[#FE6B09] leading-none">
+              <span class="counter" data-target="12">0</span>+
+            </h3>
+            <p class="mt-2 text-[13px] md:text-[14px] text-slate-600">Years of Experience</p>
           </div>
 
-          <!-- Right Image -->
-          <div class="flex justify-center lg:justify-end">
-            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1200&q=80"
-              alt="Benefits of online physiotherapy"
-              class="w-full max-w-[420px] rounded-[24px] object-cover shadow-[0_20px_40px_rgba(0,0,0,0.08)]" />
+          <div class="rounded-2xl border border-[#fde6d5] bg-[#fff8f3] px-4 py-5">
+            <h3 class="text-[2rem] md:text-[2.4rem] font-bold text-[#FE6B09] leading-none">
+              <span class="counter" data-target="500">0</span>+
+            </h3>
+            <p class="mt-2 text-[13px] md:text-[14px] text-slate-600">Patients Supported</p>
           </div>
 
+          <div class="rounded-2xl border border-[#fde6d5] bg-[#fff8f3] px-4 py-5">
+            <h3 class="text-[2rem] md:text-[2.4rem] font-bold text-[#FE6B09] leading-none">
+              <span class="counter" data-target="98">0</span>%
+            </h3>
+            <p class="mt-2 text-[13px] md:text-[14px] text-slate-600">Success Rate</p>
+          </div>
+
+          <div class="rounded-2xl border border-[#fde6d5] bg-[#fff8f3] px-4 py-5">
+            <h3 class="text-[2rem] md:text-[2.4rem] font-bold text-[#FE6B09] leading-none">24/7</h3>
+            <p class="mt-2 text-[13px] md:text-[14px] text-slate-600">Online Accessibility</p>
+          </div>
         </div>
       </div>
-    </section>
 
-    <section class="py-16 bg-[#0F172A]">
-      <div class="max-w-[1100px] mx-auto px-5">
-
-        <div class="text-center text-white rounded-[28px] bg-[#0F172A]">
-
-          <!-- TITLE -->
-          <h2 class="text-[1.8rem] md:text-[2.4rem] font-extrabold leading-tight">
-            <span class="text-[#FE6B09]">Start today</span><br class="md:hidden">
-            Your online physiotherapy consultation
-          </h2>
-
-          <!-- TEXT -->
-          <p class="mt-4 text-[0.95rem] md:text-[1.05rem] text-white/80 leading-[1.7] max-w-[620px] mx-auto">
-            Take the first step toward pain relief, better mobility, and guided recovery with expert support from PREHAB
-            DigiCare.
-          </p>
-
-          <!-- BUTTONS -->
-          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-
-            <!-- PRIMARY BUTTON -->
-            <a href="#contact"
-              class="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-full bg-[#FE6B09] px-7 py-3 text-[0.95rem] font-bold text-white shadow-[0_8px_22px_rgba(254,107,9,0.35)] hover:bg-[#db5a00] transition">
-              Book Appointment
-              <span class="grid h-8 w-8 place-items-center rounded-full bg-white/20">→</span>
-            </a>
-
-            <!-- SECONDARY BUTTON -->
-            <a href="tel:+918867205650"
-              class="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-full border border-white/40 bg-white/10 px-7 py-3 text-[0.95rem] font-bold text-white backdrop-blur-sm hover:bg-white/20 transition">
-              Speak to Us
-              <span class="grid h-8 w-8 place-items-center rounded-full bg-white/20">☎</span>
-            </a>
-
-          </div>
-
-        </div>
+      <!-- Right Image -->
+      <div class="flex justify-center lg:justify-end">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1200&q=80"
+          alt="Online physiotherapy consultation"
+          class="w-full max-w-[420px] rounded-[24px] object-cover shadow-[0_20px_40px_rgba(0,0,0,0.08)]" />
       </div>
-    </section>
+
+    </div>
+  </div>
+</section>
+
+<section class="py-16 bg-[#0F172A]">
+  <div class="max-w-[1100px] mx-auto px-5">
+
+    <div class="text-center text-white rounded-[28px] bg-[#0F172A]">
+
+      <!-- TITLE -->
+      <h2 class="text-[1.8rem] md:text-[2.4rem] font-extrabold leading-tight">
+        Start your online physiotherapy consultation today
+      </h2>
+
+      <!-- TEXT -->
+      <p class="mt-4 text-[0.95rem] md:text-[1.05rem] text-white/80 leading-[1.7] max-w-[620px] mx-auto">
+        Take the first step toward pain relief, better mobility, and guided recovery with expert support from PREHAB DigiCare.
+      </p>
+
+      <!-- SINGLE CTA -->
+      <div class="mt-8 flex justify-center">
+
+        <a href="#contact"
+          class="inline-flex items-center justify-center gap-3 rounded-full bg-[#FE6B09] px-8 py-3 text-[1rem] font-bold text-white shadow-[0_8px_22px_rgba(254,107,9,0.35)] hover:bg-[#db5a00] transition">
+          Book Appointment
+          <span class="grid h-8 w-8 place-items-center rounded-full bg-white/20">→</span>
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+</section>
 
     <section class="testimonials py-16 bg-white" id="testimonials">
       <div class="max-w-[1200px] mx-auto px-5">
@@ -860,7 +907,7 @@
         <!-- Header -->
         <div class="text-center mb-10">
           <h2 class="text-[2rem] md:text-[2.4rem] font-extrabold text-[#0F172A]">
-            <span class="text-[#FE6B09]">FAQs</span> Common questions
+            <span class="text-[#FE6B09]">FAQs</span> 
           </h2>
         </div>
 
@@ -1165,55 +1212,113 @@
       </div>
     </footer>
   </main>
-  <script>
-    const counters = document.querySelectorAll('.counter');
+<script>
+  const menuBtn = document.getElementById("menu-btn");
+  const closeBtn = document.getElementById("close-menu");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const mobileLinks = document.querySelectorAll("#mobile-menu a");
 
-    const runCounter = (counter) => {
-      const target = +counter.getAttribute('data-target');
-      let count = 0;
+  if (menuBtn && closeBtn && mobileMenu) {
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.remove("hidden");
+      document.body.classList.add("overflow-hidden");
+    });
 
-      const speed = target / 100; // smaller = slower
+    closeBtn.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
+      document.body.classList.remove("overflow-hidden");
+    });
 
-      const update = () => {
-        count += speed;
+    mobileLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        document.body.classList.remove("overflow-hidden");
+      });
+    });
+  }
 
-        if (count < target) {
-          counter.innerText = Math.ceil(count);
-          requestAnimationFrame(update);
-        } else {
-          counter.innerText = target;
-        }
-      };
+  const counters = document.querySelectorAll('.counter');
 
-      update();
+  const runCounter = (counter) => {
+    const target = +counter.getAttribute('data-target');
+    let count = 0;
+
+    const speed = target / 100;
+
+    const update = () => {
+      count += speed;
+
+      if (count < target) {
+        counter.innerText = Math.ceil(count);
+        requestAnimationFrame(update);
+      } else {
+        counter.innerText = target;
+      }
     };
 
-    // Run when section is visible (best UX)
+    update();
+  };
+
+  if (counters.length) {
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const counters = entry.target.querySelectorAll('.counter');
-          counters.forEach(counter => runCounter(counter));
+          const countersInside = entry.target.querySelectorAll('.counter');
+          countersInside.forEach(counter => runCounter(counter));
           observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.5 });
 
-    const statsSection = document.querySelector('.counter').closest('section');
-    observer.observe(statsSection);
+    const firstCounter = document.querySelector('.counter');
+    if (firstCounter) {
+      const statsSection = firstCounter.closest('section');
+      if (statsSection) observer.observe(statsSection);
+    }
+  }
 
-   const viewport = document.getElementById('testimonialViewport');
-const next = document.getElementById('testimonialNext');
-const prev = document.getElementById('testimonialPrev');
+  const viewport = document.getElementById('testimonialViewport');
+  const next = document.getElementById('testimonialNext');
+  const prev = document.getElementById('testimonialPrev');
 
-next.addEventListener('click', () => {
-  viewport.scrollBy({ left: viewport.offsetWidth, behavior: 'smooth' });
-});
+  if (viewport && next && prev) {
+    next.addEventListener('click', () => {
+      viewport.scrollBy({ left: viewport.offsetWidth, behavior: 'smooth' });
+    });
 
-prev.addEventListener('click', () => {
-  viewport.scrollBy({ left: -viewport.offsetWidth, behavior: 'smooth' });
-});
-  </script>
+    prev.addEventListener('click', () => {
+      viewport.scrollBy({ left: -viewport.offsetWidth, behavior: 'smooth' });
+    });
+  }
+
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    const icon = item.querySelector('.faq-icon');
+
+    if (question && answer && icon) {
+      question.addEventListener('click', () => {
+        const isOpen = !answer.classList.contains('hidden');
+
+        faqItems.forEach(otherItem => {
+          const otherAnswer = otherItem.querySelector('.faq-answer');
+          const otherIcon = otherItem.querySelector('.faq-icon');
+          if (otherAnswer && otherIcon) {
+            otherAnswer.classList.add('hidden');
+            otherIcon.textContent = '+';
+          }
+        });
+
+        if (!isOpen) {
+          answer.classList.remove('hidden');
+          icon.textContent = '−';
+        }
+      });
+    }
+  });
+</script>
 </body>
 
 </html>
